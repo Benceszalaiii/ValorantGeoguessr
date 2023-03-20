@@ -1,5 +1,5 @@
 # Valorant Geoguessr
-##Csapattagok:
+## Csapattagok:
 - Simon Ádám
 - Szalai Bence
 - Széphalmi Áron
