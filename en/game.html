@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="/style/game.css">
+    <title>Document</title>
+</head>
+<body>
+    <span id="warning-phone">
+        <h2>This game is intended to be played on PC</h2>
+        <p>The game might behave in none intended ways, <br>
+            please play on a computer or switch to a bigger window
+        </p>
+    </span>
+    <img src="/sources/Ascent/Easy/kep1.png" id="image" draggable="false">
+    <div id="guess">
+        <img src="/sources/minimaps/ascent.png" id="map">
+        <button id="guess-btn" disabled>Place a ping on the map</button>
+    </div>
+
+    <span id="marker"></span>
+
+    <script src="/javascript/locations.js"></script>
+    <script src="/javascript/game.js"></script>
+</body>
+</html>
