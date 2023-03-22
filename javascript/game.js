@@ -1,6 +1,7 @@
 var x = 0;
 var y = 0;
 var loc;
+var map;
 
 const MAX_POINT = 5000;
 const MAX_DISTANCE = 200 - 8;
@@ -11,6 +12,7 @@ function guess() {
 
     console.log(loc.distance([x, y]));
     point();
+    next_location();
 }
 
 function point() {
@@ -29,30 +31,24 @@ function point() {
     console.log(point);
 }
 
-$("document").ready(function() {
-    var map = sessionStorage.getItem("map");
+function next_location() {
+    loc = locations[map.toLowerCase()]["easy"][Math.floor(Math.random() * locations[map.toLowerCase()]["easy"].length)];
     
-    if (map == "Random")
-        return;
+    $("#image").attr("src", loc.map);
+    $("body").css("background-image", loc.map);
 
-    $("#map").attr("src", `/sources/minimaps/${map.toLocaleLowerCase()}.png`);
-
-    if (map.toLowerCase() == "ascent") {
-        console.log(map.toLowerCase())
-
-        loc = ASCENT["easy"][Math.floor(Math.random() * ASCENT["easy"].length)]
-        
-        $("#image").attr("src", loc.map)
-    }    
-});
+    $("#marker").css("right", "-20px");
+    $("#guess-btn").attr("disabled", true);
+    $("#guess-btn").text("Place a ping on the map");
+}
 
 $("#map").click(function(e) {
     var offset = $(this).offset();
     x = e.pageX - offset.left;
     y = e.pageY - offset.top;
 
-    $("#marker").css("top", `${y + offset.top - 2.5}px`);
-    $("#marker").css("left", `${x + offset.left - 2.5}px`);
+    $("#marker").css("right", `${$(window).width() - (offset.left + $(this).outerWidth()) + (500 - x) - 2.5}px`);
+    $("#marker").css("bottom", `${$(window).height() - (offset.top + $(this).outerHeight()) + (500 - y) - 2.5}px`);
 
     $("#coords").text(`x: ${x}, y: ${y}`);
 
@@ -65,3 +61,16 @@ document.addEventListener("keydown", e => {
     if (e.code == "Space")
         guess();
 });
+
+function main() {
+    map = sessionStorage.getItem("map");
+        
+    if (map == "Random")
+        return;
+
+    $("#map").attr("src", `/sources/minimaps/${map.toLocaleLowerCase()}.png`); 
+
+    next_location();
+}
+
+main();
