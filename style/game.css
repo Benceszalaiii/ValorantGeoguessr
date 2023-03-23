@@ -6,7 +6,6 @@ body {
     align-items: center;
     height: 100vh;
 
-    background-image: url("/sources/Ascent/Easy/kep1.png");
     background-size: cover;
     backdrop-filter: blur(8px) brightness(0.8);
     background-repeat: no-repeat;
@@ -38,9 +37,9 @@ body {
     text-align: center;
 }
 
-#game {
+/* #game {
     display: none;
-}
+} */
 
 #guess {
     position: absolute;
@@ -101,6 +100,7 @@ body {
     align-items: center;
     justify-content: center;
     color: black;
+    display: none;
 }
 
 #score #container {
@@ -130,7 +130,7 @@ body {
 #nav > :first-child {
     width: 250px;
     height: 50px;
-    background-color: green;
+    background-color: rgb(24, 141, 24);
     color: white;
 }
 #nav > *:last-child {
@@ -145,4 +145,13 @@ body {
     margin-left: 10px;
     font-weight: bolder;
     font-size: large;
+}
+
+button {
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+button:hover {
+    transform: scale(1.05, 1.05);
 }
