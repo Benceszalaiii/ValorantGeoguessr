@@ -13,4 +13,4 @@ $("document").ready(function() {
     $("button").click(function() {
         $("#map").attr("src", `../sources/minimaps/${$(this).text()}.png`)
     });
-});
+}); 
