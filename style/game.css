@@ -114,6 +114,11 @@ body {
     align-items: center;
 }
 
+#solution-map {
+    width: 500px;
+    height: 500px;
+}
+
 #current-round {
     flex-grow: 2;
 }
@@ -146,6 +151,42 @@ body {
     margin-left: 10px;
     font-weight: bolder;
     font-size: large;
+}
+
+#solution {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+#answer {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: lime;
+    border-radius: 50%;
+}
+
+.solution {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.answer {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: lime;
+    border-radius: 50%;
+}
+
+#connection {
+    position: absolute;
 }
 
 button {

@@ -42,7 +42,6 @@ const locations = {
 }
 
 function define() {
-    // Ascent
     for (const [map, map_difficulties] of Object.entries(coordinates)) {
         console.log(map, map_difficulties)
         for (const [difficulty, coord_list] of Object.entries(map_difficulties)) {
