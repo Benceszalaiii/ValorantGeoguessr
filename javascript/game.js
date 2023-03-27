@@ -125,7 +125,7 @@ function main() {
   if (map == "Random") {
     alert("This feature is still WIP, try playing another one!");
     location = "index.html";
-  }
+  return}
   $("#map").attr("src", `/sources/minimaps/${map.toLocaleLowerCase()}.png`);
 
   // section: TO BE CHANGED WHEN NEW LOCATIONS ARE UPLOADED
