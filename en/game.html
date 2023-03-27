@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/daa386bf97.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/style/game.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="warning-phone">
+        <h2>This game is intended to be played on PC</h2>
+        <p>The game might behave in none intended ways, <br>
+            please play on a computer or switch to a bigger window
+        </p>
+    </div>
+    <div id="game">
+        <img src="" id="image" draggable="false">
+        <div id="guess">
+            <img src="" id="map">
+            <button id="guess-btn" disabled>Place a ping on the map</button>
+        </div>
+        <span id="marker"></span>
+    </div>
+    <div id="score">
+        <div id="container">
+            <div id="total-points">
+                <h1 id="earned">8590</h1>
+                <p id="max">of 25000</p>
+            </div>
+            <div id="current-round">
+                <h3 id="c-earned">4961</h3>
+                <p id="c-max">of 5000</p>
+            </div>
+            <div id="nav">
+                <button>NEXT</button>
+                <button><i class="fa-solid fa-xmark"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/javascript/locations.js"></script>
+    <script src="/javascript/game.js"></script>
+</body>
+</html>

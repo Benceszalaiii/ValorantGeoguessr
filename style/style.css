@@ -20,8 +20,7 @@ body{
 #random {
     grid-column: 1 / 4;
     grid-row: 1;
-    background-image: url(https://www.pinnacle.com/Cms_Data/Contents/Guest/Media/esports2017/Article-Images/Valorant/2020-What-is-Valorant/Esports-What-is-Valorant-Temp-Hero.jpg)
-    ;
+    background-image: url(https://www.pinnacle.com/Cms_Data/Contents/Guest/Media/esports2017/Article-Images/Valorant/2020-What-is-Valorant/Esports-What-is-Valorant-Temp-Hero.jpg);
     color: white;
     font-size: 40px;
     font-weight: 800;
@@ -30,7 +29,7 @@ body{
 #map-1 {
     grid-column: 1;
     grid-row: 2;
-    background-image: url(/sources/maps/Ascent.png);
+    background-image: url(/sources/Logo/Ascent.png);
     color: white;
     font-size: 40px;
     font-weight: 800;
@@ -39,8 +38,7 @@ body{
 #map-2 {
     grid-column: 2;
     grid-row: 2;
-    background-image: url(/sources/maps/Ascent.png)
-    ;
+    background-image: url(/sources/Logo/Bind.png);
     color: white;
     font-size: 40px;
     font-weight: 800;
@@ -49,8 +47,7 @@ body{
 #map-3 {
     grid-column: 3;
     grid-row: 2;
-    background-image: url(/sources/maps/Ascent.png)
-    ;
+    background-image: url(/sources/Logo/Breeze.png);
     color: white;
     font-size: 40px;
     font-weight: 800;
@@ -59,8 +56,7 @@ body{
 #map-4 {
     grid-column: 1;
     grid-row: 3;
-    background-image: url(/sources/maps/Ascent.png)
-    ;
+    background-image: url(/sources/Logo/Fracture.png);
     color: white;
     font-size: 40px;
     font-weight: 800;
@@ -69,8 +65,7 @@ body{
 #map-5 {
     grid-column: 2;
     grid-row: 3;
-    background-image: url(/sources/maps/Ascent.png)
-    ;
+    background-image: url(/sources/Logo/Haven.png);
     color: white;
     font-size: 40px;
     font-weight: 800;
@@ -79,8 +74,7 @@ body{
 #map-6 {
     grid-column: 3;
     grid-row: 3;
-    background-image: url(/sources/maps/Ascent.png)
-    ;
+    background-image: url(/sources/Logo/Icebox.png);
     color: white;
     font-size: 40px;
     font-weight: 800;
@@ -88,8 +82,7 @@ body{
 #map-7 {
     grid-column: 1;
     grid-row: 4;
-    background-image: url(/sources/maps/Ascent.png)
-    ;
+    background-image: url(/sources/Logo/Lotus.png);
     color: white;
     font-size: 40px;
     font-weight: 800;
@@ -97,8 +90,7 @@ body{
 #map-8 {
     grid-column: 2;
     grid-row: 4;
-    background-image: url(/sources/maps/Ascent.png)
-    ;
+    background-image: url(/sources/Logo/Pearl.png);
     color: white;
     font-size: 40px;
     font-weight: 800;
@@ -106,8 +98,7 @@ body{
 #map-9 {
     grid-column: 3;
     grid-row: 4;
-    background-image: url(https://www.pinnacle.com/Cms_Data/Contents/Guest/Media/esports2017/Article-Images/Valorant/2020-What-is-Valorant/Esports-What-is-Valorant-Temp-Hero.jpg)
-    ;
+    background-image: url(/sources/Logo/Split.png);
     color: white;
     font-size: 40px;
     font-weight: 800;
