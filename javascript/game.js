@@ -102,7 +102,7 @@ function show_results() {
         connections = connections + `<path stroke-dasharray="10,10" d="M${answers[i][0]} ${answers[i][0]} l${locs_selected[i].x-answers[i][0]} ${locs_selected[i].y-answers[i][0]}" />`    
     }
 
-    connections = `<svg width="500" height="500" style= id="connection"><g fill="none" stroke="black" stroke-width="4">` + connections + '</g></svg>'
+    connections = `<svg width="500" height="500" style='left: ${offset.left}; top: ${offset.top}' id="connection"><g fill="none" stroke="black" stroke-width="4">` + connections + '</g></svg>'
 
     $("#show-score").html(locs + connections);
     $("#solution-map").attr("src", "/sources/minimaps/ascent.png")
