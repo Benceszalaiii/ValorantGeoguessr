@@ -5,7 +5,7 @@ $("#grid>button").on("click", function() {
     console.log(map)
 
     sessionStorage.setItem("map", map);
-    window.location.href = "game.html";
+    window.location.href = "options.html";
 });
 
 function main() {
