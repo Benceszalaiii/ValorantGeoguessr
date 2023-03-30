@@ -1,0 +1,80 @@
+body {
+  background-image: url(https://pbs.twimg.com/media/EZdgO14WoAINDOG.jpg);
+  background-size: cover;
+  text-align: center;
+  user-select: none;
+  margin: 0;
+  backdrop-filter: blur(20px);
+  height: 100vh;
+  user-zoom: fixed;
+}
+
+#marker {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: red;
+  border-radius: 50%;
+  top: -10px;
+  left: -10px;
+}
+
+#map {
+  margin-top: 50px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50px;
+  background-color: rgb(228, 228, 228);
+}
+
+ul,
+li {
+  display: inline;
+  list-style-type: none !important;
+}
+ul {
+  position: absolute;
+  left: 600px;
+  text-align: center;
+}
+
+img {
+  display: block;
+  margin: auto;
+}
+
+button[type="submit"]{
+  margin-top: 125px;
+  width: 400px;
+  font-size: 20px;
+}
+
+label{
+  width: 400px;
+  font-size: 20px;
+}
+.custom-file-upload {
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;}
+#success{
+  user-select: text;
+  position: absolute;
+  background-color: white;
+  font-size: 30px;
+  bottom: 0px;
+  text-align: center;
+  border-radius: 5px;
+  height: 100%;
+  width: 100%;
+}
+#success>h1{
+  margin-top: 100px;
+}
+#success>button{
+  margin-top: 700px;
+  font-size: 30px;
+}
+#req{
+  display: none;
+}

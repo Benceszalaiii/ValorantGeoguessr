@@ -4,6 +4,8 @@
 }
 body{
     font-family: "valorant";
+    color-scheme: dark;
+    scroll-behavior: smooth;
 }
 #grid {
     display: grid;
