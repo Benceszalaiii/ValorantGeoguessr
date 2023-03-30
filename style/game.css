@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/valorant');
+
 body {
     margin: 0;
     display: flex;
@@ -114,6 +116,11 @@ body {
     align-items: center;
 }
 
+#solution-map {
+    width: 500px;
+    height: 500px;
+}
+
 #current-round {
     flex-grow: 2;
 }
@@ -146,6 +153,41 @@ body {
     margin-left: 10px;
     font-weight: bolder;
     font-size: large;
+}
+
+#solution, .solution {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(70, 70, 70);
+    border-radius: 50%;
+}
+
+#solution>i, .solution>i {
+    color: white;
+    padding: 2px 4.3px;
+    font-size: smaller;
+}
+
+#answer, .answer {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: lime;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px black;
+}
+
+.answer {
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    font-weight: bolder;
+}
+
+#connection {
+    position: absolute;
 }
 
 button {
