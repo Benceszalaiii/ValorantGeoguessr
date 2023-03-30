@@ -5,7 +5,7 @@
 - Széphalmi Áron
 # Lényege:
 -Egy [GeoGuessr](www.geoguessr.com) alapú játék,
-de VALORANT pályákkal
+de [VALORANT](www.playvalorant.com) pályákkal
 ### Ki tudod találni, merre vagy?
 10 különböző pálya, 3 nehézségi fokkal
 ### Pontszámodat toplistához mérheted!
