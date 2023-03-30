@@ -1,25 +1,71 @@
 @import url('https://fonts.cdnfonts.com/css/valorant');
-*{
+
+* {
     user-select: none;
 }
-body{
+
+body {
     font-family: "valorant";
     color-scheme: dark;
     scroll-behavior: smooth;
+    /* Created with https://www.css-gradient.com */
+    background: #400000;
+    background: -webkit-radial-gradient(bottom right, #400000, #010101);
+    background: -moz-radial-gradient(bottom right, #400000, #010101);
+    background: radial-gradient(to top left, #400000, #010101);
+    height: 100vh;
 }
+
+#header {
+    margin-top: 50px;
+}
+
+#header>div {
+    background-color: #40010166;
+    display: inline-block;
+    width: 65px;
+    height: 40px;
+    transform: skew(-12deg);
+    border-radius: 5px;
+    box-shadow: 0 0 10px #00000080;
+    margin-left: 5vw;
+}
+
+#header>div>i {
+    display: inline-block;
+    font-size: 28px;
+    text-align: center;
+    width: 65px;
+    height: 40px;
+    line-height: 40px;
+    transform: skew(12deg);
+    color: #620000;
+    text-shadow: 4px 4px 6px #00000080;
+}
+
+#title {
+    text-align: center;
+    color: #690000;
+    font-size: 50px;
+    text-shadow: 15px 15px 17px #000000b3;
+}
+
 #grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     grid-auto-rows: minmax(100px, auto);
-    margin: 200px 100px;
+    margin: 130px auto;
+    width: 60%;
 }
 
-#grid>div {
-    border: 1px solid black;
+#grid>button {
+    border: none;
     border-radius: 20px;
     line-height: 100px;
     text-align: center;
+    background-size: cover;
+    box-shadow: 3px 3px 10px #00000033;
 }
 
 #random {
@@ -84,6 +130,7 @@ body{
     font-size: 40px;
     font-weight: 800;
 }
+
 #map-7 {
     grid-column: 1;
     grid-row: 4;
@@ -92,6 +139,7 @@ body{
     font-size: 40px;
     font-weight: 800;
 }
+
 #map-8 {
     grid-column: 2;
     grid-row: 4;
@@ -100,6 +148,7 @@ body{
     font-size: 40px;
     font-weight: 800;
 }
+
 #map-9 {
     grid-column: 3;
     grid-row: 4;
@@ -124,6 +173,7 @@ body{
     flex-direction: column;
     border-radius: 30px;
 }
-#user-input{
+
+#user-input {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
