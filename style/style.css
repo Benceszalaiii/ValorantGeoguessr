@@ -122,3 +122,6 @@ body{
     flex-direction: column;
     border-radius: 30px;
 }
+#user-input{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
