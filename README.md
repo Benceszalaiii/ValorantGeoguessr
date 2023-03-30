@@ -4,7 +4,7 @@
 - Szalai Bence
 - Széphalmi Áron
 # Lényege:
--Egy (GeoGuessr)[www.geoguessr.com] alapú játék,
+-Egy [GeoGuessr](www.geoguessr.com) alapú játék,
 de VALORANT pályákkal
 ### Ki tudod találni, merre vagy?
 10 különböző pálya, 3 nehézségi fokkal
