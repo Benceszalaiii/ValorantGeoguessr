@@ -10,6 +10,7 @@ $("button").on("click", function() {
 
 function main() {
     var user = getCookie("username");
+    console.log(user)
 
     if (user == "") {
         $("#user-input").css("display", "flex");
@@ -25,7 +26,7 @@ function main() {
         });
     }
 
-    sessionStorage.setItem("user", user);
+    sessionStorage.setItem("username", user);
 }
 
 main();

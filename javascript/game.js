@@ -126,6 +126,9 @@ function show_results() {
     $("#nav>button:last-child").on("click", () => {
         location = "index.html";
     });
+
+    console.log(user);
+    add(user, points, map, () => {}, {});
 }
 
 function next_location() {
@@ -187,6 +190,7 @@ document.addEventListener("keydown", (e) => {
 function main() {
     map = sessionStorage.getItem("map");
     user = sessionStorage.getItem("username")
+    console.log(user)
 
     if (map == null) {
         alert("WRONG TURN?\nYou haven't selected a map yet!");
