@@ -1,0 +1,141 @@
+body {
+  background-image: url(https://steamuserimages-a.akamaihd.net/ugc/794261398674884618/70682F2D11DA38F66CFC5D25531314FECA139468/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false);
+  background-size: cover;
+  text-align: center;
+  user-select: none;
+  margin: 0;
+  backdrop-filter: blur(10px);
+  height: 100vh;
+  user-zoom: fixed;
+  font-family: valorant;
+}
+
+#marker {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: red;
+  border: 1px solid black;
+  border-radius: 50%;
+  top: -10px;
+  left: -10px;
+}
+
+#map {
+  margin-top: 50px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50px;
+}
+
+ul,
+li {
+  display: inline;
+  list-style-type: none !important;
+}
+ul {
+  position: absolute;
+  left: 500px;
+  text-align: center;
+}
+
+img {
+  display: block;
+  margin: auto;
+}
+
+button[type="submit"]{
+  margin-top: 25px;
+  width: 400px;
+  font-size: 20px;
+}
+
+label{
+  width: 400px;
+  font-size: 20px;
+}
+.custom-file-upload {
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;}
+#success{
+  user-select: text;
+  position: absolute;
+  background-color: white;
+  font-size: 30px;
+  bottom: 0px;
+  text-align: center;
+  border-radius: 5px;
+  height: 100%;
+  width: 100%;
+}
+#success>h1{
+  margin-top: 100px;
+}
+#success>button{
+  margin-top: 700px;
+  font-size: 30px;
+}
+#req{
+  display: none;
+}
+.center {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.form-input {
+  width:350px;
+  background: red;
+}
+.form-input img {
+  background-color: red;
+  padding: 20px;
+  position: absolute;
+  width:100%;
+  display:none;
+  margin-bottom:0px;
+}
+.form-input input {
+  display:none;
+}
+
+.form-input label {
+  display:block;
+  width:45%;
+  height:45px;
+  margin-left: 25%;
+  line-height:50px;
+  text-align:center;
+  background:red;
+  color:#fff;
+  font-size:15px;
+  font-family:valorant;
+  text-transform:Uppercase;
+  font-weight:600;
+  border-radius:5px;
+  cursor:pointer;
+}
+#previewbox{
+  display: none;
+  position: absolute;
+  background-color: red;
+  width: 700px;
+  height: 400px;
+  top: 300px;
+  left: -50px;
+  border-radius: 15px;
+}
+#previewtext{
+  background-color: red;
+  display: none;
+  position: absolute;
+  font-size: 30px;
+  width: 500px;
+  border-radius: 20px;
+  font-weight: bolder;
+  color: black;
+left: 50px;
+top: 240px;
+padding: 20px;
+}
