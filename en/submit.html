@@ -15,43 +15,63 @@
 </head>
 
 <body>
-    <legend class="active text-bg-danger text-center">Submit your own location!</legend>
-    <label class="btn btn-dark" for="file-upload" class="custom-file-upload">Select image </label>
-    <div id="req" class=" text-danger fw-bold"> This is required!</div>
-    <input id="file-upload" name='upload_cont_img' type="file" style="display:none;" class="needs-validation">
-    <div class="invalid-feedback">
-        Select an image!
-    </div>
+
+<!-- Navbar -->
+    <a style="position: absolute; left:0;font-family: valorant;font-size: 30px;" class="btn text-danger fw-bold" href="index.html">Home</a>
+    <h2 class="active text-danger text-center">Submit your own location!</h2>
+
+    <!-- Upload file -->
+    <div id="previewtext">Preview File</div>
+    <div id="previewbox"></div>
+    <div class="preview">
+        <img style="max-width: 600px; position: absolute;top: 325px; left: 10px;" draggable="false" id="file-ip-1-preview">
+      </div>
+    <div class="center">
+        <div class="">
+            <label class="btn btn-danger" for="file-ip-1">Upload Image</label>
+            <input style="display: none;" type="file" id="file-ip-1" accept="image/*" onchange="showPreview(event);">
+        </div>
+      </div> 
+
+    <!-- Map selection -->
     <div>
         <div class="text-end">
-            <h4 style="user-select: text;text-align: center;">Select map</h4>
+            <h4 style="user-select: text;text-align: center;margin-top: 15px;">Select map</h4>
             <ul>
-                <li><button class="map btn btn-info disabled">Ascent</button></li>
-                <li><button class="map btn btn-info">Bind</button></li>
-                <li><button class="map btn btn-info">Breeze</button></li>
-                <li><button class="map btn btn-info">Fracture</button></li>
-                <li><button class="map btn btn-info">Haven</button></li>
-                <li><button class="map btn btn-info">Icebox</button></li>
-                <li><button class="map btn btn-info">Lotus</button></li>
-                <li><button class="map btn btn-info">Pearl</button></li>
-                <li><button class="map btn btn-info">Split</button></li>
+                <li><button class="map btn btn-danger disabled">Ascent</button></li>
+                <li><button class="map btn btn-danger">Bind</button></li>
+                <li><button class="map btn btn-danger">Breeze</button></li>
+                <li><button class="map btn btn-danger">Fracture</button></li>
+                <li><button class="map btn btn-danger">Haven</button></li>
+                <li><button class="map btn btn-danger">Icebox</button></li>
+                <li><button class="map btn btn-danger">Lotus</button></li>
+                <li><button class="map btn btn-danger">Pearl</button></li>
+                <li><button class="map btn btn-danger">Split</button></li>
             </ul>
         </div>
     </div>
+
+    <!-- Minimap -->
     <img src="../sources/minimaps/ascent.png" id="map" draggable="false" />
     <div id="coords" class="btn btn-danger disabled">
         Select the coordinates!
     </div>
     <br>
+
+    <!-- Submit -->
     <button onclick="submit()" id="submit" class="btn btn-light fw-bold" type="submit">Submit</button>
     <span id="marker"></span>
+
+    <!-- Script -->
     <script src="/javascript/submit.js"></script>
 
+<!-- Success page -->
     <div style="display: none;" id="success">
         <h1>Thank you for your submission!</h1>
         <button onclick="home()" id="home" class="btn btn-success">Home</button>
         <button onclick="another()" id="another" class="btn btn-warning">Submit another!</button>
     </div>
+
 </body>
 
 </html>
