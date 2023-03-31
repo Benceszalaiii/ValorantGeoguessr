@@ -14,7 +14,4 @@ $("[type=range]").change(function() {
     $("#num").text(newval);
 })
 
-$(".radio").click(function () {
-    $(".radio").removeClass("disabled");
-    $(this).addClass("disabled");
-  })
+
