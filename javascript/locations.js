@@ -43,16 +43,12 @@ const locations = {
 
 function define() {
     for (const [map, map_difficulties] of Object.entries(coordinates)) {
-        console.log(map, map_difficulties)
         for (const [difficulty, coord_list] of Object.entries(map_difficulties)) {
-            console.log(difficulty, coord_list)
             for (const coords of coord_list) {
                 locations[map][difficulty].push(new Location(`/sources/${title(map)}/${title(difficulty)}/kep${coordinates[map][difficulty].indexOf(coords) + 1}.png`, coords))
             }
         }
     }
-
-    console.log(locations)
 }
 
 define()

@@ -36,9 +36,7 @@ function delElementByName(name) {
         if (id === 0) 
             return;
 
-        del(response.indexOf(row)+1, (response, args) => {
-            console.log(response);
-        }, {})
+        del(response.indexOf(row)+1, (response, args) => {}, {})
     }, {name: name})
 }
 
