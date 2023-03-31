@@ -15,18 +15,18 @@
 
 <body>
     
-    <div id="options">
-        <div id="difficulty"><h1>Difficulty</h1> <br>
+        <div id="difficulty">
+            <h1>Difficulty</h1>
             <input class="btn btn-success radio" type="radio" label="Easy" name="difficulty" id="easy" value="easy">
             <input class="btn btn-warning radio" type="radio" label="Medium" name="difficulty" id="medium" value="medium">
             <input class="btn btn-danger radio" type="radio" label="Hard" name="difficulty" id="hard" value="hard">
         </div>
-        <div id="timer">Round time <br>
-            <input type="range" name="time" id="time" min="1" max="24">
+        <div id="timer">
+            <h1>Round time</h1>
+            <input type="range" name="time" id="time" min="1" value="12" max="24" oninput="changeTime()">
             <div id="num">13</div>
         </div>
         <button class="btn btn-light" id="continue">Continue</button>
-    </div>
     <script src="/javascript/options.js"></script>
 </body>
 
