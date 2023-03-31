@@ -1,0 +1,11 @@
+body{
+    text-align: center;
+}
+div{
+    font-size: 400%;
+}
+
+.hover:hover{
+    scale: 1.15;
+    transition: 300ms;
+}
