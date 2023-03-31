@@ -2,7 +2,6 @@ var xhr = new XMLHttpRequest();
 
 $("#grid>button").on("click", function() {
     var map = $(this).html();
-    console.log(map)
 
     sessionStorage.setItem("map", map);
     window.location.href = "options.html";
@@ -10,7 +9,6 @@ $("#grid>button").on("click", function() {
 
 function main() {
     var user = getCookie("username");
-    console.log(user)
 
     if (user == "") {
         $("#grid").css("visibility","hidden")

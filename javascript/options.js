@@ -1,7 +1,6 @@
 $("#continue").on("click", function () {
     var val = $("input[name='difficulty']:checked").val();
     var time = parseInt($("#time").val());
-    console.log(val)
     if (val == undefined)
         return;
 

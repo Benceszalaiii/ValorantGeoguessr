@@ -22,14 +22,11 @@ function guess() {
     if ($("#guess-btn").attr("disabled")) return;
 
     rounds_played++;
-    console.log(loc.distance([x, y]));
 
     answers.push([x, y]);
     point();
 
-    console.log(rounds_played);
-    if (rounds_played != 5) show_score();
-    else show_results();
+    show_score();
 }
 
 function point() {
@@ -45,21 +42,13 @@ function point() {
     }
 
     points += current_points;
-
-    console.log(current_points, points);
 }
 
 function show_score() {
-    $("#max").text(MAX_POINT * rounds_played);
+    $("#max").text("of " + MAX_POINT * rounds_played);
     $("#earned").text(points);
 
-    $("#c-max").text(MAX_POINT);
-    $("#c-earned").text(current_points);
-
-    $("#game").css("display", "none");
-    $("#score").css("display", "flex");
-
-    $("#c-max").text(MAX_POINT);
+    $("#c-max").text("of " + MAX_POINT);
     $("#c-earned").text(current_points);
 
     $("#game").css("display", "none");
@@ -68,8 +57,6 @@ function show_score() {
     $("#solution-map").attr("src", "/sources/minimaps/ascent.png");
     var offset = $("#solution-map").offset();
     $("#connection").css("left", offset.left).css("top", offset.top);
-
-    console.log(x, y)
 
     if (x != 2000) {
         $("#connection>g>path").attr("d", `M${x} ${y} l${loc.x - x} ${loc.y - y}`);
@@ -86,14 +73,15 @@ function show_score() {
     }
 
     $("#image").attr("src", "");
+    $("#rounds").text(`Round ${rounds_played}/5`);
 
-    $("#nav>button:first-child").on("click", () => {
+    $("#nav>#buttons>button:first-child").on("click", () => {
         if ($("#score").css("display") != "none") {
             next_location();
         }
     });
 
-    $("#nav>button:last-child").on("click", () => {
+    $("#nav>#buttons>button:last-child").on("click", () => {
         location = "index.html";
     });
 }
@@ -103,18 +91,19 @@ function show_results() {
     $("#earned").text(points);
 
     $("#game").css("display", "none");
-    $("#score").css("display", "flex");
+    $("#score").css("display", "none");
+    $("#result").css("display", "flex");
 
-    var offset = $("#solution-map").offset();
+    var offset = $("#result-map").offset();
 
-    locs = "<img id='solution-map'>";
+    locs = "<img id='result-map'>";
     connections = "";
     for (var i = 0; i < MAX_ROUND; i++) {
         if (answers[i][0] == 2000)
             continue;
 
-        locs = locs +`<div class='solution' style='right: ${$(window).width() -(offset.left + $("#solution-map").outerWidth()) +(500 - locs_selected[i].x) -10}px;bottom: ${$(window).height() - (offset.top + $("#solution-map").outerHeight()) + (500 - locs_selected[i].y) - 10}px;'><i class="fa-solid fa-font-awesome"></i></div>`;
-        locs = locs +`<div class='answer' style='right: ${$(window).width() -(offset.left + $("#solution-map").outerWidth()) +(500 - answers[i][0]) -12.5}px;bottom: ${$(window).height() - (offset.top + $("#solution-map").outerHeight()) + (500 - answers[i][1]) - 12.5}px;'>${i+1}</div>`;
+        locs = locs +`<div class='solution' style='right: ${$(window).width() -(offset.left + $("#result-map").outerWidth()) +(500 - locs_selected[i].x) -10}px;bottom: ${$(window).height() - (offset.top + $("#result-map").outerHeight()) + (500 - locs_selected[i].y) - 10}px;'><i class="fa-solid fa-font-awesome"></i></div>`;
+        locs = locs +`<div class='answer' style='right: ${$(window).width() -(offset.left + $("#result-map").outerWidth()) +(500 - answers[i][0]) -12.5}px;bottom: ${$(window).height() - (offset.top + $("#result-map").outerHeight()) + (500 - answers[i][1]) - 12.5}px;'>${i+1}</div>`;
 
         connections =
             connections +
@@ -123,24 +112,21 @@ function show_results() {
     }
 
     connections =
-        `<svg width="500" height="500" style='left: ${offset.left}px; top: ${offset.top}px' id="connection"><g fill="none" stroke="blue" stroke-width="2">` +
+        `<svg width="500" height="500" style='left: ${offset.left}px; top: ${offset.top}px' id="res-connection"><g fill="none" stroke="blue" stroke-width="2">` +
         connections +
         "</g></svg>";
 
-    $("#show-score").html(connections + locs);
-    $("#solution-map").attr("src", "/sources/minimaps/ascent.png");
+    $("#show-result").html(connections + locs);
+    $("#result-map").attr("src", "/sources/minimaps/ascent.png");
 
     $("#image").attr("src", "");
 
-    $("#nav>button:first-child").on("click", () => {
-        if ($("#score").css("display") != "none") {
-            next_location();
-        }
-    });
-
-    $("#nav>button:last-child").on("click", () => {
+    $("#retry-btn").on("click", function() {
+        location = "game.html";
+    })
+    $("#exit-btn").on("click", function() {
         location = "index.html";
-    });
+    })
 
     if (difficulty == "medium")
         points *= 1.5;
@@ -148,14 +134,19 @@ function show_results() {
         points *= 2;
 
     if (user != 0) {
-        console.log(user);
         add(user, Math.floor(points), map, () => {}, {});
     }
 }
 
 function next_location() {
     $("#score").css("display", "none");
+    $("#result").css("display", "none");
     $("#game").css("display", "block");
+
+    if (rounds_played == 5) {
+        show_results();
+        return;
+    }
 
     x = 2000;
     y = 2000;
@@ -170,7 +161,6 @@ function next_location() {
     $("#timer").text(`${Math.floor(current_timer/60)}:${current_timer%60 >= 10 ? current_timer%60 : 0 + (current_timer%60).toString()}`)
     timer = setInterval(function() {
         current_timer -= 1;
-        console.log(current_timer);
         $("#timer").text(`${Math.floor(current_timer/60)}:${current_timer%60 >= 10 ? current_timer%60 : 0 + (current_timer%60).toString()}`)
 
         if (current_timer == 0) {
@@ -217,6 +207,9 @@ $("#guess-btn").on("click", () => {
 });
 document.addEventListener("keydown", (e) => {
     if (e.code == "Space") {
+        if ($("#result").css("display") != "none")
+            return
+
         if ($("#score").css("display") != "none") {
             next_location();
             return;
@@ -231,7 +224,6 @@ function main() {
     user = sessionStorage.getItem("username");
     time = parseInt(sessionStorage.getItem("time"));
     time *= 10;
-    console.log(user, time);
 
     if (map == null) {
         alert("WRONG TURN?\nYou haven't selected a map yet!");
