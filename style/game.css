@@ -1,4 +1,5 @@
 @import url('https://fonts.cdnfonts.com/css/valorant');
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
 
 body {
     margin: 0;
@@ -186,6 +187,11 @@ body {
     font-weight: bolder;
 }
 
+#answer, #solution {
+    right: -20px;
+    bottom: -20px;
+}
+
 #connection {
     position: absolute;
 }
@@ -195,6 +201,24 @@ button {
     transition: all 0.1s ease-in-out;
 }
 
-button:hover {
+#scoer button:hover {
     transform: scale(1.05, 1.05);
+}
+
+#timer {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10px;
+    display: inline-block;
+    background-color: #630000;
+    padding: 4px 20px;
+    color: white;
+    width: 45px;
+    font-size: x-large;
+    font-weight: bold;
+    font-family: "kanit", sans-serif;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: inset -2px -2px 11px #00000099;
 }

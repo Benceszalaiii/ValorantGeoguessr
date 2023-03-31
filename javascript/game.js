@@ -1,9 +1,11 @@
-var x = 0;
-var y = 0;
+var x = 2000;
+var y = 2000;
 var loc;
 var map;
 var difficulty;
 var user;
+var time;
+var timer;
 
 const MAX_POINT = 5000;
 const MAX_DISTANCE = 200 - 8;
@@ -16,6 +18,7 @@ var points = 0;
 var current_points = 0;
 
 function guess() {
+    clearInterval(timer);
     if ($("#guess-btn").attr("disabled")) return;
 
     rounds_played++;
@@ -64,18 +67,23 @@ function show_score() {
 
     $("#solution-map").attr("src", "/sources/minimaps/ascent.png");
     var offset = $("#solution-map").offset();
-    $("#connection>g>path").attr("d", `M${x} ${y} l${loc.x - x} ${loc.y - y}`);
     $("#connection").css("left", offset.left).css("top", offset.top);
 
-    $("#answer").css("right",`${$(window).width() -(offset.left + $("#solution-map").outerWidth()) +(500 - x) -10}px`
-    );
-    $("#answer").css("bottom",`${$(window).height() -(offset.top + $("#solution-map").outerHeight()) +(500 - y) -10}px`
-    );
+    console.log(x, y)
 
-    $("#solution").css("right",`${$(window).width() -(offset.left + $("#solution-map").outerWidth()) +(500 - loc.x) -10}px`
-    );
-    $("#solution").css("bottom",`${$(window).height() -(offset.top + $("#solution-map").outerHeight()) +(500 - loc.y) -10}px`
-    );
+    if (x != 2000) {
+        $("#connection>g>path").attr("d", `M${x} ${y} l${loc.x - x} ${loc.y - y}`);
+
+        $("#answer").css("right",`${$(window).width() -(offset.left + $("#solution-map").outerWidth()) +(500 - x) -10}px`);
+        $("#answer").css("bottom",`${$(window).height() -(offset.top + $("#solution-map").outerHeight()) +(500 - y) -10}px`);
+
+        $("#solution").css("right",`${$(window).width() -(offset.left + $("#solution-map").outerWidth()) +(500 - loc.x) -10}px`);
+        $("#solution").css("bottom",`${$(window).height() -(offset.top + $("#solution-map").outerHeight()) +(500 - loc.y) -10}px`);
+    } else {
+        $("#connection>g>path").attr("d", ``);
+        $("#answer").css("right",`-20px`).css("bottom",`-20px`);
+        $("#solution").css("right",`-20px`).css("bottom",`-20px`);
+    }
 
     $("#image").attr("src", "");
 
@@ -102,20 +110,11 @@ function show_results() {
     locs = "<img id='solution-map'>";
     connections = "";
     for (var i = 0; i < MAX_ROUND; i++) {
-        locs =
-            locs +
-            `<div class='answer' style='right: ${$(window).width() -
-            (offset.left + $("#solution-map").outerWidth()) +
-            (500 - answers[i][0]) -
-            12.5
-            }px;bottom: ${$(window).height() - (offset.top + $("#solution-map").outerHeight()) + (500 - answers[i][1]) - 12.5}px;'>${i}</div>`;
-        locs =
-            locs +
-            `<div class='solution' style='right: ${$(window).width() -
-            (offset.left + $("#solution-map").outerWidth()) +
-            (500 - locs_selected[i].x) -
-            10
-            }px;bottom: ${$(window).height() - (offset.top + $("#solution-map").outerHeight()) + (500 - locs_selected[i].y) - 10}px;'><i class="fa-solid fa-font-awesome"></i></div>`;
+        if (answers[i][0] == 2000)
+            continue;
+
+        locs = locs +`<div class='solution' style='right: ${$(window).width() -(offset.left + $("#solution-map").outerWidth()) +(500 - locs_selected[i].x) -10}px;bottom: ${$(window).height() - (offset.top + $("#solution-map").outerHeight()) + (500 - locs_selected[i].y) - 10}px;'><i class="fa-solid fa-font-awesome"></i></div>`;
+        locs = locs +`<div class='answer' style='right: ${$(window).width() -(offset.left + $("#solution-map").outerWidth()) +(500 - answers[i][0]) -12.5}px;bottom: ${$(window).height() - (offset.top + $("#solution-map").outerHeight()) + (500 - answers[i][1]) - 12.5}px;'>${i+1}</div>`;
 
         connections =
             connections +
@@ -144,13 +143,13 @@ function show_results() {
     });
 
     if (difficulty == "medium")
-        points *= 2;
+        points *= 1.5;
     if (difficulty == "hard")
-        points *= 3;
+        points *= 2;
 
     if (user != 0) {
         console.log(user);
-        add(user, points, map, () => {}, {});
+        add(user, Math.floor(points), map, () => {}, {});
     }
 }
 
@@ -158,11 +157,27 @@ function next_location() {
     $("#score").css("display", "none");
     $("#game").css("display", "block");
 
+    x = 2000;
+    y = 2000;
+
     if (rounds_played == MAX_ROUND) {
         location = "index.html";
     }
 
     loc = locs_selected[rounds_played];
+
+    var current_timer = time;
+    $("#timer").text(`${Math.floor(current_timer/60)}:${current_timer%60 >= 10 ? current_timer%60 : 0 + (current_timer%60).toString()}`)
+    timer = setInterval(function() {
+        current_timer -= 1;
+        console.log(current_timer);
+        $("#timer").text(`${Math.floor(current_timer/60)}:${current_timer%60 >= 10 ? current_timer%60 : 0 + (current_timer%60).toString()}`)
+
+        if (current_timer == 0) {
+            $("#guess-btn").attr("disabled", false)
+            guess()
+        }
+    }, 1000)
 
     $("#image").attr("src", loc.map);
     $("body").css("background-image", `url(${loc.map})`);
@@ -214,7 +229,9 @@ function main() {
     map = sessionStorage.getItem("map");
     difficulty = sessionStorage.getItem("difficulty");
     user = sessionStorage.getItem("username");
-    console.log(user);
+    time = parseInt(sessionStorage.getItem("time"));
+    time *= 10;
+    console.log(user, time);
 
     if (map == null) {
         alert("WRONG TURN?\nYou haven't selected a map yet!");
