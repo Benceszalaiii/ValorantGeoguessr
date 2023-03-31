@@ -13,3 +13,5 @@ $("[type=range]").change(function() {
     var newval = $(this).val();
     $("#num").text(newval);
 })
+
+

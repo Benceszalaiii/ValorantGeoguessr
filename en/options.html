@@ -11,58 +11,22 @@
     <link rel="stylesheet" href="/style/options.css">
     <link rel="stylesheet" href="/style/style.css">
     <title>Options</title>
-
-    <style>
-        input[name="difficulty"] {
-            appearance: none;
-        }
-        input[name="difficulty"]:checked {
-            color: red;
-        }
-
-        input[name="difficulty"]:before {
-            content: attr(label);
-            display: inline-block;
-            text-align: center;
-            width: 100%;
-        }
-
-        #time {
-            appearance: none;
-            width: 300px;
-            height: 5px;
-            background-color: black;
-        }
-        #time::-webkit-slider-thumb {
-            appearance: none;
-            background-color: gray;
-            border-radius: 50%;
-            height: 15px;
-            width: 15px;
-        }
-        #time::-webkit-slider-thumb:hover {
-            background-color: lightgray;
-        }
-    </style>
-</head>
+</head> 
 
 <body>
     
-    <div id="difficulty" style="color: #b0b0b0;">Difficulty <br>
-        <input type="radio" label="Easy" name="difficulty" id="easy" class="hover" value="easy">
-        <input type="radio" label="Medium" name="difficulty" id="medium" class="hover" value="medium">
-        <input type="radio" label="Hard" name="difficulty" id="hard" class="hover" value="hard">
+    <div id="options">
+        <div id="difficulty"><h1>Difficulty</h1> <br>
+            <input class="btn btn-success radio" type="radio" label="Easy" name="difficulty" id="easy" value="easy">
+            <input class="btn btn-warning radio" type="radio" label="Medium" name="difficulty" id="medium" value="medium">
+            <input class="btn btn-danger radio" type="radio" label="Hard" name="difficulty" id="hard" value="hard">
+        </div>
+        <div id="timer">Round time <br>
+            <input type="range" name="time" id="time" min="1" max="24">
+            <div id="num">13</div>
+        </div>
+        <button class="btn btn-light" id="continue">Continue</button>
     </div>
-  
-    
-        
-    
-    <div id="timer" style="color: #b0b0b0;" >Round time <br>
-        <input type="range" name="time" id="time" min="1" max="24">
-        <div id="num"></div>
-    </div>
-    <button class="hover continue" id="continue">Continue</button>
-
     <script src="/javascript/options.js"></script>
 </body>
 
