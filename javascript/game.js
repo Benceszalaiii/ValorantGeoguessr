@@ -87,8 +87,7 @@ function show_score() {
 }
 
 function show_results() {
-    $("#max").text(MAX_POINT * rounds_played);
-    $("#earned").text(points);
+    $("#total-earned").text(points);
 
     $("#game").css("display", "none");
     $("#score").css("display", "none");

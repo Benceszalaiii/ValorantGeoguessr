@@ -40,9 +40,7 @@ body {
     text-align: center;
 }
 
-/* #game {
-    display: none;
-} */
+
 
 #guess {
     position: absolute;
@@ -95,6 +93,10 @@ body {
         background: red;
         backdrop-filter: none;
     }  
+    #result, #score{
+        display: none !important;
+        
+    }
 }
 
 #score {
@@ -332,25 +334,7 @@ button > i {
     border-radius: 19px;
 }
 
-/* #nav-res > #buttons > :first-child {
-    width: 250px;
-    height: 50px;
-    background-color: rgb(24, 141, 24);
-    color: white;
-}
-#nav > #buttons > *:last-child {
-    width: 50px;
-    height: 50px;
-}
-#nav > #buttons > * {
-    border-radius: 25px;
-    border: none;
-    padding: 0;
-    line-height: 50px;
-    margin-left: 10px;
-    font-weight: bolder;
-    font-size: large;
-} */
+
 
 #nav-res > #results {
     height: 100%;
