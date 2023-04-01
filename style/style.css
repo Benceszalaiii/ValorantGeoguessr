@@ -14,6 +14,7 @@ body {
     background: -moz-radial-gradient(bottom right, #400000, #010101);
     background: radial-gradient(to top left, #400000, #010101);
     height: 100vh;
+    overflow: hidden;
 }
 
 #header {
@@ -177,3 +178,51 @@ body {
 #user-input {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+#map-name{
+    text-align: center;
+    margin-top: 2;
+}
+
+#maps{
+    position: relative;
+}
+img{
+    position: absolute;
+    width: 100vw;
+    top: -8vw
+}
+body{
+    margin: 0;
+    overflow-x: hidden;
+}
+img:hover{
+    z-index: 1;
+    transform: scale(1.2);
+}
+
+#maps #Random:hover{
+    left: 10vw;
+}
+#maps #Ascent:hover{
+    left: 7vw;
+}
+#maps #Bind:hover{
+    left: 5vw;
+}
+#maps #Breeze:hover{
+    left: 3vw;
+}
+#maps #Icebox:hover{
+    right: 3vw;
+}
+#maps #Lotus:hover{
+    right: 5vw;
+}
+#maps #Pearl:hover{
+    right: 7vw;
+}
+#maps #Split:hover{
+    right: 10vw;
+}
+
