@@ -1,4 +1,5 @@
 @import url('https://fonts.cdnfonts.com/css/valorant');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
 * {
     user-select: none;
@@ -30,6 +31,10 @@ body {
     border-radius: 5px;
     box-shadow: 0 0 10px #00000080;
     margin-left: 5vw;
+}
+
+#header > :first-child {
+    cursor: pointer;
 }
 
 #header>div>i {
@@ -177,6 +182,7 @@ body {
 
 #user-input {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    z-index: 4;
 }
 
 #map-name{
@@ -190,7 +196,8 @@ body {
 img{
     position: absolute;
     width: 100vw;
-    top: -8vw
+    top: -8vw;
+    cursor: pointer;
 }
 body{
     margin: 0;
@@ -224,5 +231,87 @@ img:hover{
 }
 #maps #Split:hover{
     right: 10vw;
+}
+
+#menu {
+    z-index: 3;
+    /* display: none; */
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    position: absolute;
+    left: -15%;
+    top: 0;
+    height: 100vh;
+    padding-left: 15%;
+    transition: all 0.2s ease-in-out;
+
+    background-color: rgba(65, 0, 0, 0.99);
+    width: 720px;
+
+    transform: skew(-10deg);
+}
+
+#menu.closed {
+    left: -100vw
+}
+
+#menu-items {
+    display: flex;
+    flex-direction: column;
+    transform: skew(10deg);
+    height: 100%;
+    justify-content: end;
+    padding-right: 20%;
+    padding-top: 20%;
+    text-align: center;
+}
+
+#submit {
+    flex-grow: 2;
+    font-size: xx-large;
+}
+
+#submit > a {
+    color: white;
+    text-decoration: none;
+}
+
+#cover {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    display: none;
+    background-color: #00000001;
+    border: none;
+}
+
+#close {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 10;
+    font-size: xx-large;
+
+    line-height: 24px;
+    color: white;
+    cursor: pointer;
+    display: none;
+}
+
+#name {
+    display: inline-block;
+    margin: 0;
+    font-family: "Share Tech Mono", monospace;
+    font-weight: bold;
+    color: white
+}
+
+#change-name {
+    display: inline-block;
+    border: none;
+    background: none;
+    color: gray;
 }
 

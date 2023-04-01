@@ -127,12 +127,7 @@ function show_results() {
         location = "index.html";
     })
 
-    if (difficulty == "medium")
-        points *= 1.5;
-    if (difficulty == "hard")
-        points *= 2;
-
-    if (user != 0) {
+    if (user != "") {
         add(user, Math.floor(points), map, () => {}, {});
     }
 }
