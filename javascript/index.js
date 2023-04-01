@@ -1,6 +1,8 @@
+
 $("#maps>img").on("click", function() {
     var map = $(this).attr("id");
     console.log(map)
+
 
     sessionStorage.setItem("map", map);
     window.location.href = "options.html";
@@ -17,7 +19,6 @@ function(){
 
 function main() {
     var user = getCookie("username");
-    console.log(user)
 
     if (user == "") {
         $("#grid").css("visibility","hidden")
