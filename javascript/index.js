@@ -1,11 +1,21 @@
-var xhr = new XMLHttpRequest();
 
-$("#grid>button").on("click", function() {
-    var map = $(this).html();
+$("#maps>img").on("click", function() {
+    var map = $(this).attr("id");
+    console.log(map)
+
 
     sessionStorage.setItem("map", map);
     window.location.href = "options.html";
 });
+
+
+$("#maps>img").hover(function(){
+    var map = $(this).attr("id");
+    $("#map-name").text(map)
+},
+function(){
+    $("#map-name").text("​")
+})
 
 function main() {
     var user = getCookie("username");
