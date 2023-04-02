@@ -54,7 +54,7 @@ function show_score() {
     $("#game").css("display", "none");
     $("#score").css("display", "flex");
 
-    $("#solution-map").attr("src", "/sources/minimaps/ascent.png");
+    $("#solution-map").attr("src", `/sources/minimaps/${map.toLocaleLowerCase()}.png`);
     var offset = $("#solution-map").offset();
     $("#connection").css("left", offset.left).css("top", offset.top);
 
@@ -116,7 +116,7 @@ function show_results() {
         "</g></svg>";
 
     $("#show-result").html(connections + locs);
-    $("#result-map").attr("src", "/sources/minimaps/ascent.png");
+    $("#result-map").attr("src", `/sources/minimaps/${map.toLocaleLowerCase()}.png`);
 
     $("#image").attr("src", "");
 
@@ -237,10 +237,12 @@ function main() {
     try {
         locations[map.toLowerCase()][difficulty].length;
     } catch {
+        console.log("error")
         alert("This map is still WIP, try playing another one!");
         location = "index.html";
     }
     if (locations[map.toLowerCase()][difficulty].length < 5) {
+        console.log("")
         alert("This map is still WIP, try playing another one!");
         location = "index.html";
     }
