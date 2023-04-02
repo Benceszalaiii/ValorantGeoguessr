@@ -7,7 +7,7 @@ $("document").ready(function() {
         $("#marker").css("top", `${y + offset.top - 2.5}px`);
         $("#marker").css("left", `${x + offset.left - 2.5}px`);
 
-        $("#coords").text(`x: ${x}, y: ${y}`)
+        $("#coords").text(`[${x}, ${y}]`)
     });
 
     $("button").click(function() {
