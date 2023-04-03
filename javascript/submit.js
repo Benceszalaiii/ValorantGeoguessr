@@ -49,6 +49,7 @@ $(".map").click(function () {
 
 function another() {
   $("#success").css("display", "none");
+  $("#page1").removeClass("hidden");
 }
 function home() {
   location = "index.html";
@@ -56,6 +57,7 @@ function home() {
 
 function submit() {
   $("#success").css("display", "block");
+  $("#page3").addClass("hidden");
 }
 function showPreview(event) {
   if (event.target.files.length > 0) {
@@ -63,11 +65,17 @@ function showPreview(event) {
     var preview = document.getElementById("file-ip-1-preview");
     preview.src = src;
     preview.style.display = "block";
-    var preview = document.getElementById("previewbox");
-    preview.src = src;
-    preview.style.display = "block";
-    var preview = document.getElementById("previewtext");
-    preview.src = src;
-    preview.style.display = "block";
   }
+}
+function page1(){
+  $("#page1").addClass("hidden");
+  $("#page2").removeClass("hidden");
+}
+function page2(){
+  $("#page2").addClass("hidden");
+  $("#page3").removeClass("hidden");
+}
+function change(){
+  $("#page2").removeClass("hidden");
+  $("#page3").addClass("hidden");
 }

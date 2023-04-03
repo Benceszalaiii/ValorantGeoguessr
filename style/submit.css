@@ -1,11 +1,14 @@
+@import url('https://fonts.cdnfonts.com/css/valorant');
 body {
-  background-image: url(https://steamuserimages-a.akamaihd.net/ugc/794261398674884618/70682F2D11DA38F66CFC5D25531314FECA139468/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false);
-  background-size: cover;
+  background: #400000;
+  background: -webkit-radial-gradient(bottom right, #400000, #010101);
+  background: -moz-radial-gradient(bottom right, #400000, #010101);
+  background: radial-gradient(to top left, #400000, #010101);
   text-align: center;
   user-select: none;
   margin: 0;
   backdrop-filter: blur(10px);
-  height: 100vh;
+  min-height: 100vh;
   user-zoom: fixed;
   font-family: valorant;
 }
@@ -34,8 +37,6 @@ li {
   list-style-type: none !important;
 }
 ul {
-  position: absolute;
-  left: 500px;
   text-align: center;
 }
 
@@ -118,24 +119,102 @@ label{
 }
 #previewbox{
   display: none;
-  position: absolute;
-  background-color: red;
-  width: 700px;
+  width: 600px;
   height: 400px;
-  top: 300px;
-  left: -50px;
+  text-align: center;
   border-radius: 15px;
 }
 #previewtext{
-  background-color: red;
-  display: none;
-  position: absolute;
   font-size: 30px;
-  width: 500px;
   border-radius: 20px;
   font-weight: bolder;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+input[name="difficulty"] {
+  appearance: none;
+}
+input[name="difficulty"]:before {
+  content: attr(label);
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+#time {
+  appearance: none;
+  width: 300px;
+  height: 5px;
+  background-color: black;
+}
+#time::-webkit-slider-thumb {
+  appearance: none;
+  background-color: gray;
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+}
+#time::-webkit-slider-thumb:hover {
+  background-color: lightgray;
+}
+
+#difficulty > h1 {
+  font-size: 35px;
+  font-weight: bolder;
+}
+#difficulty > input {
+  width: 100px;
+  height: 40px;
   color: black;
-left: 50px;
-top: 240px;
-padding: 20px;
+}
+#timer {
+  font-size: 35px;
+  text-align: center;
+  margin-top: 80px;
+}
+.continue {
+  width: 350px;
+  margin-top: 50px;
+}
+#options {
+  background-color: aliceblue;
+}
+input[name="difficulty"]:checked{
+  background-color:lightgrey ;
+}
+#page1{
+  /* display: none; */
+  font-family: valorant;
+  /* background: #400000;
+  background: -webkit-radial-gradient(bottom right, #400000, #010101);
+  background: -moz-radial-gradient(bottom right, #400000, #010101);
+  background: radial-gradient(to top left, #400000, #010101); */
+  color: white;
+  padding-top: 400px;
+  height: 100%;
+  width: 100%;
+}
+#page2{
+  font-family: valorant;
+  /* background: #400000;
+  background: -webkit-radial-gradient(bottom right, #400000, #010101);
+  background: -moz-radial-gradient(bottom right, #400000, #010101);
+  background: radial-gradient(to top left, #400000, #010101); */
+  color: white;
+  padding-top: 450px;
+  height: 100%;
+  width: 100%;
+}
+#page3{
+  font-family: valorant;
+  /* background: #400000;
+  background: -webkit-radial-gradient(bottom right, #400000, #010101);
+  background: -moz-radial-gradient(bottom right, #400000, #010101);
+  background: radial-gradient(to top left, #400000, #010101); */
+  color: white;
+  height: 100%;
+  width: 100%;
+}
+.hidden{
+  display: none;
 }
