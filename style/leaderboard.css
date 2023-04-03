@@ -11,3 +11,7 @@ body{
     background: radial-gradient(to top left, #400000, #010101);
     height: 100vh
 }
+
+th{
+    min-width: 100px;
+}
