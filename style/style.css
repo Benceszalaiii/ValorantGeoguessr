@@ -7,7 +7,6 @@
 
 body {
     font-family: "valorant";
-    color-scheme: dark;
     scroll-behavior: smooth;
     /* Created with https://www.css-gradient.com */
     background: #400000;
@@ -51,7 +50,7 @@ body {
 
 #title {
     text-align: center;
-    color: #690000;
+    color: #fa4454;
     font-size: 50px;
     text-shadow: 15px 15px 17px #000000b3;
 }
@@ -186,6 +185,7 @@ body {
 }
 
 #map-name{
+    color: #dc1d2b !important;
     text-align: center;
     margin-top: 2;
 }
@@ -312,6 +312,9 @@ img:hover{
     display: inline-block;
     border: none;
     background: none;
-    color: gray;
+    color: grey;
 }
-
+.wip{
+    pointer-events: none;
+    filter: grayscale(100%) blur(5px);
+}
