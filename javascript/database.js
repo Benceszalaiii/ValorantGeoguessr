@@ -1,6 +1,6 @@
-var url = "https://script.google.com/macros/s/AKfycbzwik45_61_LN6_gFMDoeVjn9hRPU6iXLKf3wOvylOoVwdvr-7Qbu72tAkE6zeFUtA/exec";
+var url = "https://script.google.com/macros/s/AKfycbzy2yq_h5KLT0lgybnX-bgnkhtAfPqyN1o9fFeEhaIfSO_Lb-qmS0CpvybD60p_8mZB/exec";
 
-function add(name, point, map, done, args) {
+function add(name, point, time, map, difficulty, done, args) {
     $.ajax({
         url: url,
         type: "GET",
@@ -8,7 +8,9 @@ function add(name, point, map, done, args) {
             action: "add",
             name: name,
             point: point,
-            map: map
+            time: time,
+            map: map,
+            difficulty: difficulty
         },
         success: function (response) {
             done(response, args);
