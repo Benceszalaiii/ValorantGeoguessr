@@ -30,6 +30,8 @@ $("#Difficulty").change(function(){
 })
 
 function select(){
+    $("#leaderboard>tbody").html('<tr><td colspan="6" id="loading">loading...</td></tr>');
+
     get(function (response, args){
         response.sort(function (a, b) {return (a.point - b.point) * -1});
         sort = response.filter(val => (map == "All" ? "All" : val.map == map) && (difficulty == "All" ? "All" : val.difficulty == difficulty) ) 

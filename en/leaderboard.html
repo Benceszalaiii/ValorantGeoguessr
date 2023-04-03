@@ -13,41 +13,44 @@
     </style>
 </head>
 <body>
-    <table id="leaderboard">
-        <thead>
-            <tr>
-                <th></th>
-                <th>Name</th>
-                <th>Points</th>
-                <th>Time</th>
-                <th>
-                    <label for="Map">Map</label>
-                    <select name="Map" id="Map">
-                    <option value="All">All</option>
-                    <option value="Ascent">Ascent</option>
-                    <option value="Bind">Bind</option>
-                    <option value="Breeze">Breeze</option>
-                    <option value="Fracture">Fracture</option>
-                    <option value="Haven">Haven</option>
-                    <option value="Icebox">Icebox</option>
-                    <option value="Lotus">Lotus</option>
-                    <option value="Pearl">Pearl</option>
-                    <option value="Split">Split</option>
-                </select></th>
-                <th>
-                    <label for="Difficulty">Difficulty</label>
-                    <select name="Difficulty" id="Difficulty">
-                    <option value="All">All</option>
-                    <option value="easy">Easy</option>
-                    <option value="medium">Medium</option>
-                    <option value="hard">Hard</option>
-                </select></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td>loading...</td></tr>
-        </tbody>
-    </table>
+    <h1>Leaderboard</h1>
+    <div id="leaderboard-div">
+        <table id="leaderboard">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Points</th>
+                    <th>Time</th>
+                    <th>
+                        <label for="Map">Map</label>
+                        <select name="Map" id="Map">
+                        <option value="All">All</option>
+                        <option value="Ascent">Ascent</option>
+                        <option value="Bind">Bind</option>
+                        <option value="Breeze">Breeze</option>
+                        <option value="Fracture">Fracture</option>
+                        <option value="Haven">Haven</option>
+                        <option value="Icebox">Icebox</option>
+                        <option value="Lotus">Lotus</option>
+                        <option value="Pearl">Pearl</option>
+                        <option value="Split">Split</option>
+                    </select></th>
+                    <th>
+                        <label for="Difficulty">Difficulty</label>
+                        <select name="Difficulty" id="Difficulty">
+                        <option value="All">All</option>
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="6" id="loading">loading...</td></tr>
+            </tbody>
+        </table>
+    </div>
     <script src="/javascript/database.js"></script>
     <script src="/javascript/leaderboard.js"></script>
 </body>
