@@ -5,6 +5,8 @@ var map;
 var difficulty;
 var user;
 var time;
+var current_timer;
+var total_time = 0;
 var timer;
 
 const MAX_POINT = 5000;
@@ -41,6 +43,7 @@ function point() {
         current_points = 5000 - dist;
     }
 
+    total_time += time - current_timer;
     points += current_points;
 }
 
@@ -128,7 +131,17 @@ function show_results() {
     })
 
     if (user != "") {
-        add(user, Math.floor(points), map, () => {}, {});
+        get(function(response, args) {
+            var exists = response.find(value => value.name == user && value.map == map && value.difficulty == difficulty);
+            console.log(exists)
+            if (exists) {
+                if (exists.point <= points) {
+                    del(response.indexOf(exists) + 1, (response, args) => console.log(response), {});
+                    add(user, Math.floor(points), total_time, map, difficulty, () => {}, {});
+                }
+            } else 
+                add(user, Math.floor(points), total_time, map, difficulty, () => {}, {});
+        })
     }
 }
 
@@ -151,7 +164,7 @@ function next_location() {
 
     loc = locs_selected[rounds_played];
 
-    var current_timer = time;
+    current_timer = time;
     $("#timer").text(`${Math.floor(current_timer/60)}:${current_timer%60 >= 10 ? current_timer%60 : 0 + (current_timer%60).toString()}`)
     timer = setInterval(function() {
         current_timer -= 1;
