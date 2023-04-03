@@ -60,7 +60,7 @@ function main() {
             $("#user-input").css("display", "none");
 
             $("#name").text("*Guest*");
-        })
+        });
     }
 
     sessionStorage.setItem("username", user);

@@ -224,28 +224,9 @@ function main() {
         location = "index.html";
         return;
     }
-
-    if (map == "Random") {
-        alert("This feature is still WIP, try playing another one!");
-        location = "index.html";
-        return;
-    }
     $("#map").attr("src", `/sources/minimaps/${map.toLocaleLowerCase()}.png`);
 
     // section: TO BE CHANGED WHEN NEW LOCATIONS ARE UPLOADED
-
-    try {
-        locations[map.toLowerCase()][difficulty].length;
-    } catch {
-        console.log("error")
-        alert("This map is still WIP, try playing another one!");
-        location = "index.html";
-    }
-    if (locations[map.toLowerCase()][difficulty].length < 5) {
-        console.log("")
-        alert("This map is still WIP, try playing another one!");
-        location = "index.html";
-    }
     do {
         var current =
             locations[map.toLowerCase()][difficulty][
@@ -258,5 +239,4 @@ function main() {
 
     next_location();
 }
-
 main();
