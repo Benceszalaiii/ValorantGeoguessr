@@ -131,7 +131,16 @@ function show_results() {
     })
 
     if (user != "") {
-        add(user, Math.floor(points), total_time, map, difficulty, () => {}, {});
+        get(function(response, args) {
+            var exists = response.find(value => value.name == user && value.map == map && value.difficulty == difficulty);
+            console.log(exists)
+            if (exists) {
+                if (exists.point <= points) 
+                    del(response.indexOf(exists) + 1, (response, args) => console.log(response), {})
+            }
+
+            add(user, Math.floor(points), total_time, map, difficulty, () => {}, {});
+        })
     }
 }
 
