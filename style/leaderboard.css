@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
+body{
+    font-family: 'Kanit';
+    color: white;
+    color-scheme: dark;
+    scroll-behavior: smooth;
+    background: #400000;
+    background: -webkit-radial-gradient(bottom right, #400000, #010101);
+    background: -moz-radial-gradient(bottom right, #400000, #010101);
+    background: radial-gradient(to top left, #400000, #010101);
+    height: 100vh
+}

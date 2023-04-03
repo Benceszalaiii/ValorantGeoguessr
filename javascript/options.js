@@ -21,9 +21,9 @@ function changeTime() {
     if (secs == 0)
         $("#num").text(`${mins} minutes`)
     else if (mins == 0)
-        $("#num").text(`${secs} seconsd`)
+        $("#num").text(`${secs} seconds`)
     else
-        $("#num").text(`${mins} minutes, ${secs} seconsd`)
+        $("#num").text(`${mins} minutes, ${secs} seconds`)
 }
 
 changeTime()

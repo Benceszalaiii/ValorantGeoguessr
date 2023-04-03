@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <title>Leaderboard</title>
+    <link rel="stylesheet" href="/style/leaderboard.css">
+    <style>
+       
+    </style>
 </head>
 <body>
     <table id="leaderboard">
@@ -15,7 +19,28 @@
                 <th></th>
                 <th>Name</th>
                 <th>Points</th>
-                <th>Map</th>
+                <th>Time</th>
+                <th>
+                    <label for="Map">Map</label>
+                    <select name="Map" id="Map">
+                    <option value="All">All</option>
+                    <option value="Ascent">Ascent</option>
+                    <option value="Bind">Breeze</option>
+                    <option value="Fracture">Fracture</option>
+                    <option value="Haven">Haven</option>
+                    <option value="Icebox">Icebox</option>
+                    <option value="Lotus">Lotus</option>
+                    <option value="Pearl">Pearl</option>
+                    <option value="Split">Split</option>
+                </select></th>
+                <th>
+                    <label for="Difficulty">Difficulty</label>
+                    <select name="Difficulty" id="Difficulty">
+                    <option value="All">All</option>
+                    <option value="Easy">Easy</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Hard">Hard</option>
+                </select></th>
             </tr>
         </thead>
         <tbody>
