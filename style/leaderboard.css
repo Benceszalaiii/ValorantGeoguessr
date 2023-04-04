@@ -70,3 +70,28 @@ th{
     text-align: center;
     padding: 20px 0;
 }
+
+#to-main {
+    position: absolute;
+    transform: skew(-12deg);
+    left: 5vw;
+    top: 50px;
+    background-color: #40010166;
+    width: 65px;
+    height: 40px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #00000080;
+    cursor: pointer;
+}
+
+#to-main > i {
+    display: inline-block;
+    font-size: 20px;
+    text-align: center;
+    width: 65px;
+    height: 40px;
+    line-height: 40px;
+    transform: skew(12deg);
+    color: #ffffff;
+    text-shadow: 4px 4px 6px #00000080;
+}
