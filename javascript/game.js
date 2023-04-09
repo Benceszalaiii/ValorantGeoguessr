@@ -8,6 +8,8 @@ var time;
 var current_timer;
 var total_time = 0;
 var timer;
+var showing_score = false;
+var showing_results = false;
 
 const MAX_POINT = 5000;
 const MAX_DISTANCE = 200 - 8;
@@ -48,6 +50,8 @@ function point() {
 }
 
 function show_score() {
+    showing_score = true; 
+
     $("#max").text("of " + MAX_POINT * rounds_played);
     $("#earned").text(points);
 
@@ -80,16 +84,20 @@ function show_score() {
 
     $("#nav>#buttons>button:first-child").on("click", () => {
         if ($("#score").css("display") != "none") {
+            showing_score = false; 
             next_location();
         }
     });
 
     $("#nav>#buttons>button:last-child").on("click", () => {
+        showing_score = false; 
         location = "index.html";
     });
 }
 
-function show_results() {
+function show_results(resize) {
+    showing_results = true;
+
     $("#total-earned").text(points);
 
     $("#game").css("display", "none");
@@ -98,7 +106,7 @@ function show_results() {
 
     var offset = $("#result-map").offset();
 
-    locs = "<img id='result-map'>";
+    locs = `<img id='result-map' src='/sources/minimaps/${map.toLocaleLowerCase()}.png'>`;
     connections = "";
     for (var i = 0; i < MAX_ROUND; i++) {
         if (answers[i][0] == 2000)
@@ -119,18 +127,18 @@ function show_results() {
         "</g></svg>";
 
     $("#show-result").html(connections + locs);
-    $("#result-map").attr("src", `/sources/minimaps/${map.toLocaleLowerCase()}.png`);
-
     $("#image").attr("src", "");
 
     $("#retry-btn").on("click", function() {
+        showing_results = false;
         location = "game.html";
     })
     $("#exit-btn").on("click", function() {
+        showing_results = false;
         location = "index.html";
     })
 
-    if (user != "") {
+    if (user != "" || !resize) {
         get(function(response, args) {
             var exists = response.find(value => value.name == user && value.map == map && value.difficulty == difficulty);
             console.log(exists)
@@ -145,13 +153,21 @@ function show_results() {
     }
 }
 
+$(window).resize(function() {
+    if (showing_results) {
+        show_results(true)
+    } else if (showing_score) {
+        show_score()
+    }
+})
+
 function next_location() {
     $("#score").css("display", "none");
     $("#result").css("display", "none");
     $("#game").css("display", "block");
 
     if (rounds_played == 5) {
-        show_results();
+        show_results(false);
         return;
     }
 
@@ -218,6 +234,7 @@ document.addEventListener("keydown", (e) => {
             return
 
         if ($("#score").css("display") != "none") {
+            showing_score = false; 
             next_location();
             return;
         }

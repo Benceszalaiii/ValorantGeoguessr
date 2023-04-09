@@ -44,5 +44,7 @@ function select(){
 
         $("#leaderboard>tbody").html(table)
     },{})
-
 }
+$("#to-main").on("click", function() {
+    location = "index.html";
+})
