@@ -50,117 +50,9 @@ body {
 
 #title {
     text-align: center;
-    color: #fa4454;
+    color: #690000;
     font-size: 50px;
     text-shadow: 15px 15px 17px #000000b3;
-}
-
-#grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    grid-auto-rows: minmax(100px, auto);
-    margin: 130px auto;
-    width: 60%;
-}
-
-#grid>button {
-    border: none;
-    border-radius: 20px;
-    line-height: 100px;
-    text-align: center;
-    background-size: cover;
-    box-shadow: 3px 3px 10px #00000033;
-}
-
-#random {
-    grid-column: 1 / 4;
-    grid-row: 1;
-    background-image: url(https://www.pinnacle.com/Cms_Data/Contents/Guest/Media/esports2017/Article-Images/Valorant/2020-What-is-Valorant/Esports-What-is-Valorant-Temp-Hero.jpg);
-    color: white;
-    font-size: 40px;
-    font-weight: 800;
-}
-
-#map-1 {
-    grid-column: 1;
-    grid-row: 2;
-    background-image: url(/sources/Logo/Ascent.png);
-    color: white;
-    font-size: 40px;
-    font-weight: 800;
-}
-
-#map-2 {
-    grid-column: 2;
-    grid-row: 2;
-    background-image: url(/sources/Logo/Bind.png);
-    color: white;
-    font-size: 40px;
-    font-weight: 800;
-}
-
-#map-3 {
-    grid-column: 3;
-    grid-row: 2;
-    background-image: url(/sources/Logo/Breeze.png);
-    color: white;
-    font-size: 40px;
-    font-weight: 800;
-}
-
-#map-4 {
-    grid-column: 1;
-    grid-row: 3;
-    background-image: url(/sources/Logo/Fracture.png);
-    color: white;
-    font-size: 40px;
-    font-weight: 800;
-}
-
-#map-5 {
-    grid-column: 2;
-    grid-row: 3;
-    background-image: url(/sources/Logo/Haven.png);
-    color: white;
-    font-size: 40px;
-    font-weight: 800;
-}
-
-#map-6 {
-    grid-column: 3;
-    grid-row: 3;
-    background-image: url(/sources/Logo/Icebox.png);
-    color: white;
-    font-size: 40px;
-    font-weight: 800;
-}
-
-#map-7 {
-    grid-column: 1;
-    grid-row: 4;
-    background-image: url(/sources/Logo/Lotus.png);
-    color: white;
-    font-size: 40px;
-    font-weight: 800;
-}
-
-#map-8 {
-    grid-column: 2;
-    grid-row: 4;
-    background-image: url(/sources/Logo/Pearl.png);
-    color: white;
-    font-size: 40px;
-    font-weight: 800;
-}
-
-#map-9 {
-    grid-column: 3;
-    grid-row: 4;
-    background-image: url(/sources/Logo/Split.png);
-    color: white;
-    font-size: 40px;
-    font-weight: 800;
 }
 
 #user-input {
@@ -246,7 +138,8 @@ img:hover{
     padding-left: 15%;
     transition: all 0.2s ease-in-out;
 
-    background-color: rgba(65, 0, 0, 0.99);
+    background-color: rgba(30, 0, 0, 0.9);
+    backdrop-filter: blur(20px);
     width: 720px;
 
     transform: skew(-10deg);
@@ -267,9 +160,26 @@ img:hover{
     text-align: center;
 }
 
+#menu-items > :not(:last-child):not(:nth-last-child(2)) {
+    text-align: left;
+    padding-left: 70px;
+    margin-top: 40px;
+    text-shadow: 2px 2px 5px #00000020;
+    font-style: italic;
+}
+
 #submit {
+    font-size: xx-large;
+}
+
+#leaderboard {
     flex-grow: 2;
     font-size: xx-large;
+}
+
+#leaderboard > a {
+    color: white;
+    text-decoration: none;
 }
 
 #submit > a {

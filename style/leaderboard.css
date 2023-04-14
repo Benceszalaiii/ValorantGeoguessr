@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
+body{
+    font-family: 'Kanit';
+    color: white;
+    color-scheme: dark;
+    scroll-behavior: smooth;
+    background: #400000;
+    background: -webkit-radial-gradient(bottom right, #400000, #010101);
+    background: -moz-radial-gradient(bottom right, #400000, #010101);
+    background: radial-gradient(to top left, #400000, #010101);
+    height: 100vh;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: none;
+}
+::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 2px 20px 20px 2px;
+}
+
+h1 {
+    text-align: center;
+}
+
+table {
+    display: table;
+    border-collapse: collapse;
+}
+
+#leaderboard-div {
+    padding: 50px;
+    border-radius: 20px;
+    background-color: #ffffff05;
+    max-height: 60vh;
+    overflow-y: scroll;
+}
+
+tr > :not(:last-child) {
+    border-right: 1px solid white;
+}
+
+
+th, td {
+    text-align: left;
+    padding: 1px 10px;
+    /* border: 1px solid rgba(255, 255, 255, 0.05); */
+}
+
+td {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);;
+}
+
+th{
+    min-width: 100px;
+    border-bottom: 1px solid white;
+}
+
+#loading {
+    text-align: center;
+    padding: 20px 0;
+}
+
+#to-main {
+    position: absolute;
+    transform: skew(-12deg);
+    left: 5vw;
+    top: 50px;
+    background-color: #40010166;
+    width: 65px;
+    height: 40px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #00000080;
+    cursor: pointer;
+}
+
+#to-main > i {
+    display: inline-block;
+    font-size: 20px;
+    text-align: center;
+    width: 65px;
+    height: 40px;
+    line-height: 40px;
+    transform: skew(12deg);
+    color: #ffffff;
+    text-shadow: 4px 4px 6px #00000080;
+}
