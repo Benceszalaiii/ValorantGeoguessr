@@ -8,6 +8,8 @@ var time;
 var current_timer;
 var total_time = 0;
 var timer;
+var random_maps = [];
+var is_random = false;
 var showing_score = false;
 var showing_results = false;
 
@@ -249,6 +251,29 @@ function main() {
     time = parseInt(sessionStorage.getItem("time"));
     time *= 10;
 
+    if (map == "Random") {
+        is_random = true;
+
+        const available_maps = Object.keys(locations);
+
+        for (let i = 0; i < 5; i++) {
+            let curr = available_maps[Math.floor(Math.random() * available_maps.length)]
+
+            if ([...new Set(random_maps)].length < 4) {
+                random_maps.push(curr);
+            }
+        }
+
+        do {
+            var random_map = random_maps[locs_selected.length];
+
+            var current = locations[random_map][difficulty][Math.floor(Math.random() * locations[random_map][difficulty].length)];
+            if (!locs_selected.includes(current)) locs_selected.push(current);
+        } while (locs_selected.length < 5)
+
+        return;
+    }
+
     if (map == null) {
         alert("WRONG TURN?\nYou haven't selected a map yet!");
         location = "index.html";
@@ -256,7 +281,6 @@ function main() {
     }
     $("#map").attr("src", `/sources/minimaps/${map.toLocaleLowerCase()}.png`);
 
-    // section: TO BE CHANGED WHEN NEW LOCATIONS ARE UPLOADED
     do {
         var current =
             locations[map.toLowerCase()][difficulty][
@@ -264,8 +288,6 @@ function main() {
             ];
         if (!locs_selected.includes(current)) locs_selected.push(current);
     } while (locs_selected.length < 5);
-
-    // end_section
 
     next_location();
 }
