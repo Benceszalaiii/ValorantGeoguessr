@@ -168,6 +168,10 @@ function next_location() {
     $("#result").css("display", "none");
     $("#game").css("display", "block");
 
+    if (is_random) {
+        $("#map").attr("src", `/sources/minimaps/${random_maps[rounds_played]}.png`);
+    }
+
     if (rounds_played == 5) {
         show_results(false);
         return;
@@ -271,6 +275,7 @@ function main() {
             if (!locs_selected.includes(current)) locs_selected.push(current);
         } while (locs_selected.length < 5)
 
+        next_location();
         return;
     }
 
