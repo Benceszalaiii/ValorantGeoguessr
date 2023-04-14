@@ -318,3 +318,41 @@ img:hover{
     pointer-events: none;
     filter: grayscale(100%) blur(5px);
 }
+#difficulty > h1 {
+    font-size: 35px;
+    font-weight: bolder;
+  }
+  #difficulty > input {
+    width: 100px;
+    height: 40px;
+    color: black;
+  }
+  input[name="difficulty"] {
+    appearance: none;
+  }
+  input[name="difficulty"]:before {
+    content: attr(label);
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+  }
+#lang-select{
+    text-align: center;
+    margin-top: 25vw;
+    background-size: cover;
+    list-style-type: none;
+    /* display: inline; */
+    text-decoration: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+.lang{
+    user-select: none;
+    background-size: cover;
+    width: 100px;
+    background-repeat: no-repeat;
+    height: 50px;
+}
+#lang-select>li{
+    display: inline-block;
+}
