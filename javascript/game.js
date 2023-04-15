@@ -52,7 +52,7 @@ function point() {
 }
 
 function show_score() {
-    showing_score = true; 
+    showing_score = true;
 
     $("#max").text("of " + MAX_POINT * rounds_played);
     $("#earned").text(points);
@@ -63,22 +63,26 @@ function show_score() {
     $("#game").css("display", "none");
     $("#score").css("display", "flex");
 
-    $("#solution-map").attr("src", `/sources/minimaps/${map.toLocaleLowerCase()}.png`);
+    if (is_random)
+        $("#solution-map").attr("src", `/sources/minimaps/${random_maps[rounds_played - 1]}.png`);
+    else
+        $("#solution-map").attr("src", `/sources/minimaps/${map.toLocaleLowerCase()}.png`);
+
     var offset = $("#solution-map").offset();
     $("#connection").css("left", offset.left).css("top", offset.top);
 
     if (x != 2000) {
         $("#connection>g>path").attr("d", `M${x} ${y} l${loc.x - x} ${loc.y - y}`);
 
-        $("#answer").css("right",`${$(window).width() -(offset.left + $("#solution-map").outerWidth()) +(500 - x) -10}px`);
-        $("#answer").css("bottom",`${$(window).height() -(offset.top + $("#solution-map").outerHeight()) +(500 - y) -10}px`);
+        $("#answer").css("right", `${$(window).width() - (offset.left + $("#solution-map").outerWidth()) + (500 - x) - 10}px`);
+        $("#answer").css("bottom", `${$(window).height() - (offset.top + $("#solution-map").outerHeight()) + (500 - y) - 10}px`);
 
-        $("#solution").css("right",`${$(window).width() -(offset.left + $("#solution-map").outerWidth()) +(500 - loc.x) -10}px`);
-        $("#solution").css("bottom",`${$(window).height() -(offset.top + $("#solution-map").outerHeight()) +(500 - loc.y) -10}px`);
+        $("#solution").css("right", `${$(window).width() - (offset.left + $("#solution-map").outerWidth()) + (500 - loc.x) - 10}px`);
+        $("#solution").css("bottom", `${$(window).height() - (offset.top + $("#solution-map").outerHeight()) + (500 - loc.y) - 10}px`);
     } else {
         $("#connection>g>path").attr("d", ``);
-        $("#answer").css("right",`-20px`).css("bottom",`-20px`);
-        $("#solution").css("right",`-20px`).css("bottom",`-20px`);
+        $("#answer").css("right", `-20px`).css("bottom", `-20px`);
+        $("#solution").css("right", `-20px`).css("bottom", `-20px`);
     }
 
     $("#image").attr("src", "");
@@ -86,13 +90,13 @@ function show_score() {
 
     $("#nav>#buttons>button:first-child").on("click", () => {
         if ($("#score").css("display") != "none") {
-            showing_score = false; 
+            showing_score = false;
             next_location();
         }
     });
 
     $("#nav>#buttons>button:last-child").on("click", () => {
-        showing_score = false; 
+        showing_score = false;
         location = "index.html";
     });
 }
@@ -106,56 +110,97 @@ function show_results(resize) {
     $("#score").css("display", "none");
     $("#result").css("display", "flex");
 
-    var offset = $("#result-map").offset();
+    if (!is_random) {
+        var offset = $("#result-map").offset();
 
-    locs = `<img id='result-map' src='/sources/minimaps/${map.toLocaleLowerCase()}.png'>`;
-    connections = "";
-    for (var i = 0; i < MAX_ROUND; i++) {
-        if (answers[i][0] == 2000)
-            continue;
+        locs = `<img id='result-map' src='/sources/minimaps/${map.toLocaleLowerCase()}.png'>`;
+        connections = "";
+        for (var i = 0; i < MAX_ROUND; i++) {
+            if (answers[i][0] == 2000)
+                continue;
 
-        locs = locs +`<div class='solution' style='right: ${$(window).width() -(offset.left + $("#result-map").outerWidth()) +(500 - locs_selected[i].x) -10}px;bottom: ${$(window).height() - (offset.top + $("#result-map").outerHeight()) + (500 - locs_selected[i].y) - 10}px;'><i class="fa-solid fa-font-awesome"></i></div>`;
-        locs = locs +`<div class='answer' style='right: ${$(window).width() -(offset.left + $("#result-map").outerWidth()) +(500 - answers[i][0]) -12.5}px;bottom: ${$(window).height() - (offset.top + $("#result-map").outerHeight()) + (500 - answers[i][1]) - 12.5}px;'>${i+1}</div>`;
+            locs = locs + `<div class='solution' style='right: ${$(window).width() - (offset.left + $("#result-map").outerWidth()) + (500 - locs_selected[i].x) - 10}px;bottom: ${$(window).height() - (offset.top + $("#result-map").outerHeight()) + (500 - locs_selected[i].y) - 10}px;'><i class="fa-solid fa-font-awesome"></i></div>`;
+            locs = locs + `<div class='answer' style='right: ${$(window).width() - (offset.left + $("#result-map").outerWidth()) + (500 - answers[i][0]) - 12.5}px;bottom: ${$(window).height() - (offset.top + $("#result-map").outerHeight()) + (500 - answers[i][1]) - 12.5}px;'>${i + 1}</div>`;
+
+            connections =
+                connections +
+                `<path stroke-dasharray="4,4" d="M${answers[i][0]} ${answers[i][1]} l${locs_selected[i].x - answers[i][0]
+                } ${locs_selected[i].y - answers[i][1]}" />`;
+        }
 
         connections =
+            `<svg width="500" height="500" style='left: ${offset.left}px; top: ${offset.top}px' id="res-connection"><g fill="none" stroke="blue" stroke-width="2">` +
             connections +
-            `<path stroke-dasharray="4,4" d="M${answers[i][0]} ${answers[i][1]} l${locs_selected[i].x - answers[i][0]
-            } ${locs_selected[i].y - answers[i][1]}" />`;
+            "</g></svg>";
+
+        $("#show-result").html(connections + locs);
+        $("#image").attr("src", "");
+    } else {
+        let random_map_results = "";
+        $("#show-result").addClass("random-results-container");
+
+        for (let i = 0; i < [...new Set(random_maps)].length; i++) {
+            let sel_map = [...new Set(random_maps)][i]
+            random_map_results +=  `<img class='random-result' id='random-${sel_map}' src='/sources/minimaps/${sel_map}.png'>`
+        }
+
+        $("#show-result").html(random_map_results);
+
+        let random_svgs = {}
+        let locs = ""
+
+        for (let i = 0; i < locs_selected.length; i++) {
+            let curr_map = random_maps[i]
+            let curr_location = locs_selected[i]
+            let offset = $(`#random-${curr_map}`).offset();
+
+            if (!random_svgs[curr_map])
+                random_svgs[curr_map] = "";
+
+            locs += `<div class='solution' style='right: ${$(window).width() - (offset.left + $(`#random-${curr_map}`).outerWidth()) + (500 - curr_location.x) - 10}px;bottom: ${$(window).height() - (offset.top + $(`#random-${curr_map}`).outerHeight()) + (500 - curr_location.y) - 10}px;'><i class="fa-solid fa-font-awesome"></i></div>`;
+            locs += `<div class='answer' style='right: ${$(window).width() - (offset.left + $(`#random-${curr_map}`).outerWidth()) + (500 - answers[i][0]) - 12.5}px;bottom: ${$(window).height() - (offset.top + $(`#random-${curr_map}`).outerHeight()) + (500 - answers[i][1]) - 12.5}px;'>${i + 1}</div>`;
+            
+            random_svgs[curr_map] += `<path stroke-dasharray="4,4" d="M${answers[i][0]} ${answers[i][1]} l${curr_location.x - answers[i][0]} ${curr_location.y - answers[i][1]}" />`;
+        }
+
+        let connection = ""
+
+        for (let i = 0; i < Object.keys(random_svgs).length; i++) {
+            let curr_svg = random_svgs[Object.keys(random_svgs)[i]]
+            let curr_map = [...new Set(random_maps)][i]
+            let offset = $(`#random-${curr_map}`).offset();
+
+            connection += `<svg width="500" height="500" style='left: ${offset.left}px; top: ${offset.top}px' id="res-connection"><g fill="none" stroke="blue" stroke-width="2">` + curr_svg + "</g></svg>";
+        }
+
+        $("#show-result").html(random_map_results + connection + locs);
     }
 
-    connections =
-        `<svg width="500" height="500" style='left: ${offset.left}px; top: ${offset.top}px' id="res-connection"><g fill="none" stroke="blue" stroke-width="2">` +
-        connections +
-        "</g></svg>";
-
-    $("#show-result").html(connections + locs);
-    $("#image").attr("src", "");
-
-    $("#retry-btn").on("click", function() {
+    $("#retry-btn").on("click", function () {
         showing_results = false;
         location = "game.html";
     })
-    $("#exit-btn").on("click", function() {
+    $("#exit-btn").on("click", function () {
         showing_results = false;
         location = "index.html";
     })
 
     if (user != "" || !resize) {
-        get(function(response, args) {
+        get(function (response, args) {
             var exists = response.find(value => value.name == user && value.map == map && value.difficulty == difficulty);
             console.log(exists)
             if (exists) {
                 if (exists.point <= points) {
                     del(response.indexOf(exists) + 1, (response, args) => console.log(response), {});
-                    add(user, Math.floor(points), total_time, map, difficulty, () => {}, {});
+                    add(user, Math.floor(points), total_time, map, difficulty, () => { }, {});
                 }
-            } else 
-                add(user, Math.floor(points), total_time, map, difficulty, () => {}, {});
+            } else
+                add(user, Math.floor(points), total_time, map, difficulty, () => { }, {});
         })
     }
 }
 
-$(window).resize(function() {
+$(window).resize(function () {
     if (showing_results) {
         show_results(true)
     } else if (showing_score) {
@@ -168,13 +213,13 @@ function next_location() {
     $("#result").css("display", "none");
     $("#game").css("display", "block");
 
-    if (is_random) {
-        $("#map").attr("src", `/sources/minimaps/${random_maps[rounds_played]}.png`);
-    }
-
     if (rounds_played == 5) {
         show_results(false);
         return;
+    }
+
+    if (is_random) {
+        $("#map").attr("src", `/sources/minimaps/${random_maps[rounds_played]}.png`);
     }
 
     x = 2000;
@@ -187,10 +232,10 @@ function next_location() {
     loc = locs_selected[rounds_played];
 
     current_timer = time;
-    $("#timer").text(`${Math.floor(current_timer/60)}:${current_timer%60 >= 10 ? current_timer%60 : 0 + (current_timer%60).toString()}`)
-    timer = setInterval(function() {
+    $("#timer").text(`${Math.floor(current_timer / 60)}:${current_timer % 60 >= 10 ? current_timer % 60 : 0 + (current_timer % 60).toString()}`)
+    timer = setInterval(function () {
         current_timer -= 1;
-        $("#timer").text(`${Math.floor(current_timer/60)}:${current_timer%60 >= 10 ? current_timer%60 : 0 + (current_timer%60).toString()}`)
+        $("#timer").text(`${Math.floor(current_timer / 60)}:${current_timer % 60 >= 10 ? current_timer % 60 : 0 + (current_timer % 60).toString()}`)
 
         if (current_timer == 0) {
             $("#guess-btn").attr("disabled", false)
@@ -240,7 +285,7 @@ document.addEventListener("keydown", (e) => {
             return
 
         if ($("#score").css("display") != "none") {
-            showing_score = false; 
+            showing_score = false;
             next_location();
             return;
         }
@@ -255,18 +300,20 @@ function main() {
     time = parseInt(sessionStorage.getItem("time"));
     time *= 10;
 
+    console.log(map, map.toLocaleLowerCase())
+
     if (map == "Random") {
         is_random = true;
 
         const available_maps = Object.keys(locations);
 
-        for (let i = 0; i < 5; i++) {
+        do {
             let curr = available_maps[Math.floor(Math.random() * available_maps.length)]
 
-            if ([...new Set(random_maps)].length < 4) {
+            if ([...new Set(random_maps)].length < 4 || random_maps.includes(curr)) {
                 random_maps.push(curr);
             }
-        }
+        } while (random_maps.length < 5)
 
         do {
             var random_map = random_maps[locs_selected.length];

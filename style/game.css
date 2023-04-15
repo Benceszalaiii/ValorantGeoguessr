@@ -311,7 +311,6 @@ button > i {
 #result #show-result {
     flex-grow: 2;
     display: flex;
-    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
 }
@@ -424,4 +423,15 @@ button > i {
 
 #result button:hover {
     transform: scale(1.05, 1.05);
+}
+
+/* random results */
+
+.random-result {
+    width: 500px;
+    height: 500px;
+}
+
+.random-results-container {
+    flex-wrap: wrap;
 }
