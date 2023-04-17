@@ -7,8 +7,6 @@ get(function (response, args) {
     map = $("#Map").val()
     difficulty = $("#Difficulty").val()
 
-    console.log(map,difficulty)
-
     table = "";
 
     for (i = 0; i < response.length; i++) {
