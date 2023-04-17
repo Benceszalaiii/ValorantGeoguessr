@@ -435,3 +435,20 @@ button > i {
 .random-results-container {
     flex-wrap: wrap;
 }
+
+#maps_select {
+    display: none;
+}
+
+#maps_select > input[type="radio"] {
+    appearance: none;
+}
+
+#maps_select > input[type="radio"]::before {
+    content: attr(value);
+    font-family: "valorant";
+}
+#maps_select > input[type="radio"]:checked::before {
+    font-size: large;
+    font-weight: bold;
+}

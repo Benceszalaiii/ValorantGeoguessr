@@ -9,6 +9,7 @@ var current_timer;
 var total_time = 0;
 var timer;
 var random_maps = [];
+let random_svgs = {};
 var is_random = false;
 var showing_score = false;
 var showing_results = false;
@@ -101,6 +102,30 @@ function show_score() {
     });
 }
 
+function change_map() {
+    var sel_map = $("#maps_select > input[type='radio']:checked").attr("value");
+    var map_shown = `<img class='random-result' id='random-${sel_map}' src='/sources/minimaps/${sel_map}.png'>`
+    $("#show-result").html(map_shown);
+    var offset = $("#show-result > img").offset();
+    var sel_svg = `<svg width="500" height="500" style='left: ${offset.left}px; top: ${offset.top}px' id="res-connection"><g fill="none" stroke="blue" stroke-width="2">${random_svgs[sel_map]}</g></svg>`;
+    var locs = "";
+
+    for (let i = 0; i < locs_selected.length; i++) {
+        if (answers[i][0] == 2000)
+                continue;
+                
+        let curr_map = random_maps[i]
+        if (curr_map != sel_map)
+            continue;
+
+        let curr_location = locs_selected[i]
+
+        locs += `<div class='solution' style='right: ${$(window).width() - (offset.left + $(`#random-${sel_map}`).outerWidth()) + (500 - curr_location.x) - 10}px;bottom: ${$(window).height() - (offset.top + $(`#random-${sel_map}`).outerHeight()) + (500 - curr_location.y) - 10}px;'><i class="fa-solid fa-font-awesome"></i></div>`;
+        locs += `<div class='answer' style='right: ${$(window).width() - (offset.left + $(`#random-${sel_map}`).outerWidth()) + (500 - answers[i][0]) - 12.5}px;bottom: ${$(window).height() - (offset.top + $(`#random-${sel_map}`).outerHeight()) + (500 - answers[i][1]) - 12.5}px;'>${i + 1}</div>`;   
+    }
+    $("#show-result").html(sel_svg + locs + map_shown);
+}
+
 function show_results(resize) {
     showing_results = true;
 
@@ -136,44 +161,31 @@ function show_results(resize) {
         $("#show-result").html(connections + locs);
         $("#image").attr("src", "");
     } else {
-        let random_map_results = "";
         $("#show-result").addClass("random-results-container");
 
-        for (let i = 0; i < [...new Set(random_maps)].length; i++) {
-            let sel_map = [...new Set(random_maps)][i]
-            random_map_results +=  `<img class='random-result' id='random-${sel_map}' src='/sources/minimaps/${sel_map}.png'>`
-        }
-
-        $("#show-result").html(random_map_results);
-
-        let random_svgs = {}
         let locs = ""
 
-        for (let i = 0; i < locs_selected.length; i++) {
-            let curr_map = random_maps[i]
-            let curr_location = locs_selected[i]
-            let offset = $(`#random-${curr_map}`).offset();
-
-            if (!random_svgs[curr_map])
-                random_svgs[curr_map] = "";
-
-            locs += `<div class='solution' style='right: ${$(window).width() - (offset.left + $(`#random-${curr_map}`).outerWidth()) + (500 - curr_location.x) - 10}px;bottom: ${$(window).height() - (offset.top + $(`#random-${curr_map}`).outerHeight()) + (500 - curr_location.y) - 10}px;'><i class="fa-solid fa-font-awesome"></i></div>`;
-            locs += `<div class='answer' style='right: ${$(window).width() - (offset.left + $(`#random-${curr_map}`).outerWidth()) + (500 - answers[i][0]) - 12.5}px;bottom: ${$(window).height() - (offset.top + $(`#random-${curr_map}`).outerHeight()) + (500 - answers[i][1]) - 12.5}px;'>${i + 1}</div>`;
+        for (var i = 0; i < MAX_ROUND; i++) {
+            if (answers[i][0] == 2000)
+                continue;
             
-            random_svgs[curr_map] += `<path stroke-dasharray="4,4" d="M${answers[i][0]} ${answers[i][1]} l${curr_location.x - answers[i][0]} ${curr_location.y - answers[i][1]}" />`;
+            var curr_map = random_maps[i];
+            if (!random_svgs[curr_map])
+            random_svgs[curr_map] = "";
+
+            random_svgs[curr_map] += `<path stroke-dasharray="4,4" d="M${answers[i][0]} ${answers[i][1]} l${locs_selected[i].x - answers[i][0]} ${locs_selected[i].y - answers[i][1]}" />`;
         }
 
-        let connection = ""
-
-        for (let i = 0; i < Object.keys(random_svgs).length; i++) {
-            let curr_svg = random_svgs[Object.keys(random_svgs)[i]]
-            let curr_map = [...new Set(random_maps)][i]
-            let offset = $(`#random-${curr_map}`).offset();
-
-            connection += `<svg width="500" height="500" style='left: ${offset.left}px; top: ${offset.top}px' id="res-connection"><g fill="none" stroke="blue" stroke-width="2">` + curr_svg + "</g></svg>";
+        $("#maps_select").html("")
+        for (const map_select of [...new Set(random_maps)]) {
+            $("#maps_select").html($("#maps_select").html() + `<input type="radio" name="maps" value="${map_select}">`);
         }
+        $("input[type='radio'][name='maps']").change(() => {change_map()});
 
-        $("#show-result").html(random_map_results + connection + locs);
+        $(`input[value="${[...new Set(random_maps)][0]}"]`).attr("checked", true);
+        $("#maps_select").css("display", "flex");
+
+        change_map();
     }
 
     $("#retry-btn").on("click", function () {
@@ -185,13 +197,12 @@ function show_results(resize) {
         location = "index.html";
     })
 
-    if (user != "" || !resize) {
+    if (user != "" && !resize) {
         get(function (response, args) {
             var exists = response.find(value => value.name == user && value.map == map && value.difficulty == difficulty);
-            console.log(exists)
             if (exists) {
                 if (exists.point <= points) {
-                    del(response.indexOf(exists) + 1, (response, args) => console.log(response), {});
+                    del(response.indexOf(exists) + 1, (response, args) => {}, {});
                     add(user, Math.floor(points), total_time, map, difficulty, () => { }, {});
                 }
             } else
@@ -299,8 +310,6 @@ function main() {
     user = sessionStorage.getItem("username");
     time = parseInt(sessionStorage.getItem("time"));
     time *= 10;
-
-    console.log(map, map.toLocaleLowerCase())
 
     if (map == "Random") {
         is_random = true;
