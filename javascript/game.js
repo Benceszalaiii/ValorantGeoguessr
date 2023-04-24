@@ -55,10 +55,10 @@ function point() {
 function show_score() {
     showing_score = true;
 
-    $("#max").text("of " + MAX_POINT * rounds_played);
+    $("#max").html(($("#max > .before").text() || "") + MAX_POINT * rounds_played + ($("#max > .after").text() || "") + `<span class="secret before">${($("#max > .before").text() || "")}</span><span class="secret after">${($("#max > .after").text() || "")}</span>`);
     $("#earned").text(points);
 
-    $("#c-max").text("of " + MAX_POINT);
+    $("#c-max").html(($("#c-max > .before").text() || "") + MAX_POINT + ($("#c-max > .after").text() || "") + `<span class="secret before">${($("#c-max > .before").text() || "")}</span><span class="secret after">${($("#c-max > .after").text() || "")}</span>`);
     $("#c-earned").text(current_points);
 
     $("#game").css("display", "none");
@@ -87,7 +87,7 @@ function show_score() {
     }
 
     $("#image").attr("src", "");
-    $("#rounds").text(`Round ${rounds_played}/5`);
+    $("#rounds").html(`${$("#rounds > .before").text() || ""} ${rounds_played}/${MAX_ROUND} ${$("#rounds > .after").text() || ""}`+ `<span class="secret before">${($("#rounds > .before").text() || "")}</span><span class="secret after">${($("#rounds > .after").text() || "")}</span>`);
 
     $("#nav>#buttons>button:first-child").on("click", () => {
         if ($("#score").css("display") != "none") {
@@ -259,7 +259,8 @@ function next_location() {
 
     $("#marker").css("right", "-20px");
     $("#guess-btn").attr("disabled", true);
-    $("#guess-btn").text("Place a ping on the map");
+    $("#guess-btn > .before").css("display", "inline");
+    $("#guess-btn > .after").css("display", "none");
 }
 
 $("#map").click(function (e) {
@@ -284,7 +285,8 @@ $("#map").click(function (e) {
     $("#coords").text(`x: ${x}, y: ${y}`);
 
     $("#guess-btn").attr("disabled", false);
-    $("#guess-btn").text("GUESS");
+    $("#guess-btn > .before").css("display", "none");
+    $("#guess-btn > .after").css("display", "inline");
 });
 
 $("#guess-btn").on("click", () => {

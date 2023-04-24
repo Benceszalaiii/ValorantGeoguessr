@@ -20,10 +20,10 @@
 <!-- Difficulty -->
 <div id="page1">
     <div id="difficulty">
-        <h1>Difficulty</h1>
-        <input class="btn btn-success radio" type="radio" label="Easy" name="difficulty" id="easy" value="easy">
-        <input class="btn btn-warning radio" type="radio" label="Medium" name="difficulty" id="medium" value="medium">
-        <input class="btn btn-danger radio" type="radio" label="Hard" name="difficulty" id="hard" value="hard">
+        <h1>Nehézség</h1>
+        <input class="btn btn-success radio" type="radio" label="EKönnyű" name="difficulty" id="easy" value="easy">
+        <input class="btn btn-warning radio" type="radio" label="Közepes" name="difficulty" id="medium" value="medium">
+        <input class="btn btn-danger radio" type="radio" label="Nehéz" name="difficulty" id="hard" value="hard">
     </div>
     <input type="button" id="page1continue" onclick="page1()" value="Continue" class="btn btn-dark" style="margin-top: 400px; width: 300px;">
 </div>
@@ -31,20 +31,20 @@
 <div class="hidden" id="page2">
     <div class="center">
         <div class="">
-            <label class="btn btn-danger" for="file-ip-1">Upload Image</label>
+            <label class="btn btn-danger" for="file-ip-1">Kép feltöltése</label>
             <input style="display: none;"  accept="image/*" type="file" id="file-ip-1" onchange="showPreview(event); page2()">
         </div>
     </div>
 </div>
     <div class="hidden" id="page3">
-        <div id="previewtext">Preview image</div>
+        <div id="previewtext">Kép előnézet</div>
         <div class="preview">
             <img style="max-width: 600px;" draggable="false" id="file-ip-1-preview">
           </div>
-        <div style="margin-top: 30px;" class="btn btn-secondary" onclick="change()">Change image</div>
+        <div style="margin-top: 30px;" class="btn btn-secondary" onclick="change()">Kép megváltoztatása</div>
         <div>
             <div class="text-center">
-                <h4 style="margin-top: 15px;">Select map</h4>
+                <h4 style="margin-top: 15px;">Válassz pályát</h4>
                 <ul>
                     <li><button class="map btn btn-danger disabled">Ascent</button></li>
                     <li><button class="map btn btn-danger">Bind</button></li>
