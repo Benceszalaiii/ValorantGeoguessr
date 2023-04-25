@@ -459,3 +459,7 @@ button > i {
     font-size: large;
     font-weight: bold;
 }
+
+.secret {
+    display: none;
+}

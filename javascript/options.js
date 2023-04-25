@@ -19,11 +19,11 @@ function changeTime() {
     secs = (time%6)*10; 
 
     if (secs == 0)
-        $("#num").text(`${mins} minutes`)
+        $("#num").html(`${mins} ${$("#num > .before").text()}` + `<span class="secret before">${$("#num > .before").text()}</span><span class="secret after">${$("#num > .after").text()}</span>`)
     else if (mins == 0)
-        $("#num").text(`${secs} seconds`)
+        $("#num").html(`${secs} ${$("#num > .after").text()}` + `<span class="secret before">${$("#num > .before").text()}</span><span class="secret after">${$("#num > .after").text()}</span>`)
     else
-        $("#num").text(`${mins} minutes, ${secs} seconds`)
+        $("#num").html(`${mins} ${$("#num > .before").text()}, ${secs} ${$("#num > .after").text()}` + `<span class="secret before">${$("#num > .before").text()}</span><span class="secret after">${$("#num > .after").text()}</span>`)
 }
 
 changeTime()

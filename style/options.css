@@ -58,3 +58,7 @@ input[name="difficulty"]:before {
 input[name="difficulty"]:checked{
   background-color:lightgrey ;
 }
+
+.secret {
+  display: none;
+}
