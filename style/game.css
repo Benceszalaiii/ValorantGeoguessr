@@ -438,10 +438,17 @@ button > i {
 
 #maps_select {
     display: none;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 20% 0;
 }
 
 #maps_select > input[type="radio"] {
     appearance: none;
+    cursor: pointer;
+    width: 7vw;
+    text-align: center;
+    
 }
 
 #maps_select > input[type="radio"]::before {

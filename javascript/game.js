@@ -104,7 +104,7 @@ function show_score() {
 
 function change_map() {
     var sel_map = $("#maps_select > input[type='radio']:checked").attr("value");
-    var map_shown = `<img class='random-result' id='random-${sel_map}' src='/sources/minimaps/${sel_map}.png'>`
+    var map_shown = `<img id="result-map" src='/sources/minimaps/${sel_map}.png'>`
     $("#show-result").html(map_shown);
     var offset = $("#show-result > img").offset();
     var sel_svg = `<svg width="500" height="500" style='left: ${offset.left}px; top: ${offset.top}px' id="res-connection"><g fill="none" stroke="blue" stroke-width="2">${random_svgs[sel_map]}</g></svg>`;
@@ -120,8 +120,8 @@ function change_map() {
 
         let curr_location = locs_selected[i]
 
-        locs += `<div class='solution' style='right: ${$(window).width() - (offset.left + $(`#random-${sel_map}`).outerWidth()) + (500 - curr_location.x) - 10}px;bottom: ${$(window).height() - (offset.top + $(`#random-${sel_map}`).outerHeight()) + (500 - curr_location.y) - 10}px;'><i class="fa-solid fa-font-awesome"></i></div>`;
-        locs += `<div class='answer' style='right: ${$(window).width() - (offset.left + $(`#random-${sel_map}`).outerWidth()) + (500 - answers[i][0]) - 12.5}px;bottom: ${$(window).height() - (offset.top + $(`#random-${sel_map}`).outerHeight()) + (500 - answers[i][1]) - 12.5}px;'>${i + 1}</div>`;   
+        locs += `<div class='solution' style='right: ${$(window).width() - (offset.left + $(`#result-map`).outerWidth()) + (500 - curr_location.x) - 10}px;bottom: ${$(window).height() - (offset.top + $(`#result-map`).outerHeight()) + (500 - curr_location.y) - 10}px;'><i class="fa-solid fa-font-awesome"></i></div>`;
+        locs += `<div class='answer' style='right: ${$(window).width() - (offset.left + $(`#result-map`).outerWidth()) + (500 - answers[i][0]) - 12.5}px;bottom: ${$(window).height() - (offset.top + $(`#result-map`).outerHeight()) + (500 - answers[i][1]) - 12.5}px;'>${i + 1}</div>`;   
     }
     $("#show-result").html(sel_svg + locs + map_shown);
 }
