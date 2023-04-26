@@ -107,8 +107,8 @@ const coordinates = {
         ],
         "hard": [
             [338, 103], [338, 103], [204, 221], [297, 205], [301, 469], [116, 403]
-        ]
-    }
+        ],
+    },
 }
 
 const locations = {
@@ -133,6 +133,16 @@ const locations = {
         "hard": []
     },
     "haven": {
+        "easy": [],
+        "medium": [],
+        "hard": []
+    },
+    "lotus": {
+        "easy": [],
+        "medium": [],
+        "hard": []
+    },
+    "split": {
         "easy": [],
         "medium": [],
         "hard": []
