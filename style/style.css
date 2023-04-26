@@ -269,6 +269,7 @@ img:hover{
     width: 100px;
     background-repeat: no-repeat;
     height: 50px;
+    padding: 0;
 }
 #lang-select>li{
     display: inline-block;
