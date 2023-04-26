@@ -1,15 +1,18 @@
 @import url('https://fonts.cdnfonts.com/css/valorant');
 @import url('https://fonts.googleapis.com/css2?family=Martian+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Goldman&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap');
 * {
     user-select: none;
 }
 
-html[lang="hu"] :not(#name):not(i) {
+html:not([lang="en"]) :not(#name):not(i) {
     font-family: 'Goldman', cursive;
 }
+html[lang="ja"] :not(#name):not(i) {
+    font-family: 'Noto Sans TC', sans-serif;
 
+}
 body {
     font-family: "valorant";
     scroll-behavior: smooth;
