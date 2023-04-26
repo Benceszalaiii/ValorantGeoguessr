@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html oncontextmenu="return false" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/daa386bf97.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/style/game.css">
+    <link rel="shortcut icon" href="https://www.svgrepo.com/show/424912/valorant-logo-play-2.svg" type="image/x-icon">
+    <title>لعبة</title>
+</head>
+<body oncontextmenu="return false">
+    <div id="warning-phone">
+        <h2>هذه اللعبة مخصصة لتلعب على جهاز الكمبيوتر</h2>
+        <p>قد تتصرف اللعبة بأي طريقة مقصودة ، <br>
+            يرجى اللعب على جهاز كمبيوتر أو التبديل إلى نافذة أكبر
+        </p>
+    </div>
+    <div id="game">
+        <div id="timer">3:12</div>
+        <img src="" id="image" draggable="false">
+        <div id="guess">
+            <img src="" draggable="false" id="map">
+            <button id="guess-btn" disabled><span class="secret before" style="display: inline;">ضع نقطة على الخريطة</span><span class="secret after">يخمن</span></button>
+        </div>
+        <span id="marker"></span>
+    </div>
+    <div id="score">
+        <div id="container">
+            <div id="show-score">
+                <img id="solution-map">
+                <svg width="500" height="500" id="connection">
+                    <g fill="none" stroke="blue" stroke-width="2">
+                        <path stroke-dasharray="4, 4"/>
+                    </g>
+                </svg>
+                <div id="solution"><i class="fa-solid fa-font-awesome"></i></div>
+                <div id="answer"></div>
+                <div id="rounds"><span class="secret before">دائري </span></div>
+            </div>
+            <div id="nav">
+                <div id="total-points">
+                    <p id="total-title">مجمل النقاط</p>
+                    <h1 id="earned">8590</h1>
+                    <p id="max"><span class="secret before">ل </span></p>
+                </div>
+                <div id="buttons">
+                    <button>التالي</button>
+                    <button><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div id="current-round">
+                    <p id="c-title">الجولة الحالية</p>
+                    <h1 id="c-earned">4961</h1>
+                    <p id="c-max"><span class="secret before">ل </span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="result">
+        <div id="res-container">
+            <div id="maps_select"></div>
+            <div id="show-result">
+                <img id="result-map" src="/sources/minimaps/ascent.png">
+            </div>
+            <div id="nav-res">
+                <div id="retry">
+                    <button id="retry-btn">أعد المحاولة</button>
+                </div>
+                <div id="results">
+                    <p id="result-title">مجمل النقاط</p>
+                    <h1 id="total-earned">8590</h1>
+                    <p id="total-max">ل 25000</p>
+                </div>
+                <div id="exit">
+                    <button id="exit-btn">مخرج</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/javascript/database.js"></script>
+    <script src="/javascript/locations.js"></script>
+    <script src="/javascript/game.js"></script>
+</body>
+</html>
