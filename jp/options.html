@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
     <meta charset="UTF-8">
@@ -10,23 +10,23 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <link rel="stylesheet" href="/style/options.css">
     <link rel="stylesheet" href="/style/style.css">
-    <title>Options</title>
+    <title>オプション</title>
 </head> 
 
 <body>
     
         <div id="difficulty">
-            <h1>Difficulty</h1>
-            <input class="btn btn-success radio" type="radio" label="Easy" name="difficulty" id="easy" value="easy">
-            <input class="btn btn-warning radio" type="radio" label="Medium" name="difficulty" id="medium" value="medium">
-            <input class="btn btn-danger radio" type="radio" label="Hard" name="difficulty" id="hard" value="hard">
+            <h1>困難</h1>
+            <input class="btn btn-success radio" type="radio" label="簡単" name="difficulty" id="easy" value="easy">
+            <input class="btn btn-warning radio" type="radio" label="中くらい" name="difficulty" id="medium" value="medium">
+            <input class="btn btn-danger radio" type="radio" label="難しい" name="difficulty" id="hard" value="hard">
         </div>
         <div id="timer">
-            <h1>Round time</h1>
+            <h1>ラウンドタイム</h1>
             <input type="range" name="time" id="time" min="1" value="12" max="24" oninput="changeTime()">
-            <div id="num"><span class="secret before">minutes</span><span class="secret after">seconds</span></div>
+            <div id="num"><span class="secret before">分</span><span class="secret after">秒</span></div>
         </div>
-        <button class="btn btn-light" id="continue">Continue</button>
+        <button class="btn btn-light" id="continue">続く</button>
     <script src="/javascript/options.js"></script>
 </body>
 
