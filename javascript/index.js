@@ -39,7 +39,7 @@ function main() {
     var user = getCookie("username");
 
     if (user == "") {
-        $("#grid").css("visibility","hidden")
+        $("#cover").css("display", "block");
         $("#user-input").css("display", "flex");
         $("input#submit-name").on("click", function() {
             var input = $("input#name-input").val();
@@ -52,14 +52,14 @@ function main() {
             sessionStorage.setItem("username", user);
             $("#name").text(user);
 
-            $("#grid").css("visibility","visible")
             $("#user-input").css("display", "none");
+            close_menu();
         });
         $("#guest").on("click", function(){
-            $("#grid").css("visibility","visible");
             $("#user-input").css("display", "none");
 
             $("#name").text("*Guest*");
+            close_menu();
         });
     }
 
