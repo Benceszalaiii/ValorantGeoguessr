@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html oncontextmenu="return false" lang="hu">
+<html oncontextmenu="return false" lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,13 +8,13 @@
     <script src="https://kit.fontawesome.com/daa386bf97.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/style/game.css">
     <link rel="shortcut icon" href="https://www.svgrepo.com/show/424912/valorant-logo-play-2.svg" type="image/x-icon">
-    <title>Játék</title>
+    <title>ゲーム</title>
 </head>
 <body oncontextmenu="return false">
     <div id="warning-phone">
-        <h2>Ezt a játékot PC-n való játékra van tervezve</h2>
-        <p>Előfordulhat, hogy a játék nem szándékosan fog viselkedni, <br> 
-            kérjük, játsszon számítógépen, vagy váltson nagyobb ablakra
+        <h2>このゲームは PC でのプレイを想定しています</h2>
+        <p>ゲームが意図しない動作をする可能性があります <br>
+            コンピューターで再生するか、大きなウィンドウに切り替えてください
         </p>
     </div>
     <div id="game">
@@ -22,7 +22,7 @@
         <img src="" id="image" draggable="false">
         <div id="guess">
             <img src="" draggable="false" id="map">
-            <button id="guess-btn" disabled><span class="secret before" style="display: inline;">Tegyél egy jelölőt a térképre</span><span class="secret after">Küldés</span></button>
+            <button id="guess-btn" disabled><span class="secret before" style="display: inline;">マップにピンを配置する</span><span class="secret after">推測</span></button>
         </div>
         <span id="marker"></span>
     </div>
@@ -37,22 +37,22 @@
                 </svg>
                 <div id="solution"><i class="fa-solid fa-font-awesome"></i></div>
                 <div id="answer"></div>
-                <div id="rounds"><span class="secret before">Kör</span> 2/5</div>
+                <div id="rounds"><span class="secret before">ラウンド </span></div>
             </div>
             <div id="nav">
                 <div id="total-points">
-                    <p id="total-title">Teljes pontszám</p>
+                    <p id="total-title">合計点</p>
                     <h1 id="earned">8590</h1>
-                    <p id="max"><span class="secret before">a </span><span class="secret after"> -ből</span></p>
+                    <p id="max"><span class="secret before">のうち </span></p>
                 </div>
                 <div id="buttons">
-                    <button>Következő</button>
+                    <button>次</button>
                     <button><i class="fa-solid fa-xmark"></i></button>
                 </div>
                 <div id="current-round">
-                    <p id="c-title">Jelenlegi kör</p>
+                    <p id="c-title">現在のラウンド</p>
                     <h1 id="c-earned">4961</h1>
-                    <p id="c-max"><span class="secret before">a </span><span class="secret after"> -ből</span></p>
+                    <p id="c-max"><span class="secret before">のうち </span></p>
                 </div>
             </div>
         </div>
@@ -65,15 +65,15 @@
             </div>
             <div id="nav-res">
                 <div id="retry">
-                    <button id="retry-btn">PRÓBÁLD ÚJRA</button>
+                    <button id="retry-btn">リトライ</button>
                 </div>
                 <div id="results">
-                    <p id="result-title">Teljes pontszám</p>
+                    <p id="result-title">合計点</p>
                     <h1 id="total-earned">8590</h1>
-                    <p id="total-max">a 25000-ből</p>
+                    <p id="total-max">のうち 25000</p>
                 </div>
                 <div id="exit">
-                    <button id="exit-btn">KILÉPÉS</button>
+                    <button id="exit-btn">出口</button>
                 </div>
             </div>
         </div>

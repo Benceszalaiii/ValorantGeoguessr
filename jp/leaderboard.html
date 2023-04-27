@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <link rel="shortcut icon" href="https://www.svgrepo.com/show/424912/valorant-logo-play-2.svg" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/daa386bf97.js" crossorigin="anonymous"></script>
+    <title>リーダーボード</title>
+    <link rel="stylesheet" href="/style/leaderboard.css">
+    <style>
+       
+    </style>
+</head>
+<body>
+    <div id="to-main"><i class="fa-solid fa-arrow-left-long"></i></div>
+    <h1>リーダーボード</h1>
+    <div id="leaderboard-div">
+        <table id="leaderboard">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>名前</th>
+                    <th>ポイント</th>
+                    <th>時間</th>
+                    <th>
+                        <label for="Map">地図</label>
+                        <select name="Map" id="Map">
+                        <option value="All">全て</option>
+                        <option value="Ascent">アセント</option>
+                        <option value="Bind">バインド</option>
+                        <option value="Breeze">ブリーズ</option>
+                        <option value="Fracture">フラクチャー</option>
+                        <option value="Haven">ヘイヴン</option>
+                        <option value="Icebox">アイスボックス</option>
+                        <option value="Lotus">ロータス</option>
+                        <option value="Pearl">パール</option>
+                        <option value="Split">スプリット</option>
+                        <option value="Random">ランダム</option>
+                    </select></th>
+                    <th>
+                        <label for="Difficulty">困難</label>
+                        <select name="Difficulty" id="Difficulty">
+                        <option value="All">全て</option>
+                        <option value="easy">簡単</option>
+                        <option value="medium">中くらい</option>
+                        <option value="hard">難しい</option>
+                    </select></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="6" id="loading">読み込み中...</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="/javascript/database.js"></script>
+    <script src="/javascript/leaderboard.js"></script>
+</body>
+</html>
