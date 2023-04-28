@@ -22,6 +22,9 @@ $("#header > :first-child").on("click", function() {
 });
 
 function close_menu() {
+    if ($("#name").text() == "")
+        return
+    
     $("#menu").addClass("closed");
     $("#close").css("display", "none");
     $("#cover").css("display", "none");
@@ -50,7 +53,7 @@ function main() {
             setCookie("username", user, 10);
 
             sessionStorage.setItem("username", user);
-            $("#name").text(user);
+            $("#name").html(user + `<span class="secret before">${$("#name > .before").text()}</span>`);
 
             $("#user-input").css("display", "none");
             close_menu();
@@ -58,13 +61,12 @@ function main() {
         $("#guest").on("click", function(){
             $("#user-input").css("display", "none");
 
-            $("#name").text("*Guest*");
+            $("#name").html(`*${$("#name > .before").text()}*` + `<span class="secret before">${$("#name > .before").text()}</span>`);
             close_menu();
         });
     }
 
     sessionStorage.setItem("username", user);
-    $("#name").text(user);
 }
 
 main();
